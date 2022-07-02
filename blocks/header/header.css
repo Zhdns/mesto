@@ -1,0 +1,8 @@
+.header {
+    /*page-proofs*/
+    display: flex;
+    flex-direction: column; 
+    margin: 0 auto; 
+    max-width: var(--maxWidth);  
+}
+

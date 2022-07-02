@@ -1,0 +1,13 @@
+.elements {
+
+    /*page-proofs*/
+    display: grid;
+    grid-template-columns: repeat(3, 282px);
+    column-gap: 17px;
+    row-gap: 20px;
+    
+    /*intendention and sizing*/
+    margin: auto;
+    justify-items: center;
+    
+}

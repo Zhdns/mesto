@@ -1,0 +1,9 @@
+.element__photo {
+    /*intendetion and sizing*/
+    max-width: 282px;
+    margin: 0;
+
+    /*page-proofs*/
+    object-fit: contain;
+    
+}

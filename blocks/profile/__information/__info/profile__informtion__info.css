@@ -1,0 +1,8 @@
+.profile__information__info {
+    /*page-proofs*/
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 18px;
+    row-gap: 16px;
+    
+}

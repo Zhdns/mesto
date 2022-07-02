@@ -1,0 +1,10 @@
+.profile__info__information__profession {
+    /*style*/
+    font-size: 18px;
+    line-height: 1.21;
+    font-weight: 500;
+    color: white;
+
+    /*intendention and sizing*/
+    margin: 0;
+}

@@ -1,0 +1,18 @@
+.root {
+    /* indentation and sizing*/
+    max-width: 1280px;
+    min-width: 320px;
+    font-size: 16px;
+    margin: 0 auto;
+    /*style*/
+    background-color: black;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+
+    /*page-proofs*/
+
+
+}
+
+:root {
+    --maxWidth: 880px;
+}

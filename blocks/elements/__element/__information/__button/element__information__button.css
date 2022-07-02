@@ -1,0 +1,13 @@
+.element__information__button {
+    /*intendation and sizing*/
+    max-width: 26px;
+    
+
+    /*syle*/
+    border-style: none;
+    background-color: white;
+}
+
+.aa {
+    margin: 0 auto;
+}

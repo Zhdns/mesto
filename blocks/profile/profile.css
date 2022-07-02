@@ -1,0 +1,10 @@
+.profile {
+    /*intendention and sizing*/
+    max-width: var(--maxWidth);
+    margin: 35px auto 45px;
+    
+    /*page-proofs*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

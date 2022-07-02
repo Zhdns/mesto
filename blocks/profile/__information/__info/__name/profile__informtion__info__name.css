@@ -1,0 +1,11 @@
+.profile__info__information__name {
+    /*style*/
+    font-size: 42px;
+    line-height: 1.14;
+    font-weight: 500;
+    color: white;
+
+    /*intendention and sizing*/ 
+    margin: 0 ;
+    align-self: end;
+}

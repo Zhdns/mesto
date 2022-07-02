@@ -1,0 +1,12 @@
+.header__line {
+    /*indentation and sizing*/
+    width: 100%;
+
+    /*page-proofs*/
+    
+    /*style*/
+    content: "";
+    background-color: #545454;
+    height: 1px;
+    
+}

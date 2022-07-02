@@ -1,0 +1,12 @@
+.elements__element { 
+    /*style*/
+    background-color: white;
+    border-radius: 10px;
+
+    /*page-proofs*/
+    overflow: hidden;
+
+
+    /*indentention and sizig*/
+    margin: 0 auto;
+}
