@@ -1,0 +1,8 @@
+.form__input {
+    /*page-proofs*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin:0 auto;
+
+}

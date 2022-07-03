@@ -4,5 +4,13 @@
     grid-template-columns: 1fr auto;
     column-gap: 18px;
     row-gap: 16px;
-    
+    grid-template-areas:
+        "name button"
+        "profession profession";
+}
+
+@media screen and (max-width: 780px) {
+    .profile__information__info {
+        margin: 0 auto 36px;
+    }
 }

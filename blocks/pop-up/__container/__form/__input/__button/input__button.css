@@ -1,0 +1,15 @@
+.input__button {
+    /*style*/
+    background-color: black;
+
+    /*indentention and sizing*/
+    width: 358px;
+    margin: 18px auto;
+    height: 50px;
+}
+
+@media screen and (max-width: 430px) {
+    .input__button {
+        width: 238px;
+    }
+}
