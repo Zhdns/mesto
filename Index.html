@@ -19,9 +19,9 @@
                 <img class="profile__information__avatar" src="./images/avatar/avatar.jpg" alt="аватарка">
                 <div class="profile__information__info">
                     <h1 class="profile__info__information__name">Денис Жалгосбай</h1>
-                    <a class="profile__info__information__button" href="#">
+                    <button class="profile__info__information__button">
                         <img src="./images/button/Edit_Button.svg" alt="добавить">
-                    </a>
+                    </button>
                     <h2 class="profile__info__information__profession">Кинооператор</h2>
                 </div>
             </div> 
@@ -35,65 +35,64 @@
                 <img src="./images/places/deadsea.png" class="element__photo" alt="Мертвое Море">
                 <div class="element__information">
                     <p class="element__information__name">Мертвое Море</p>
-                    <button class="element__information__button" >
-                        <img  src="./images/button/like_button.svg">
-                    </button>
+                    <button class="element__information__button"></button>
                 </div>
             </div>
             <div class="elements__element">
                 <img src="./images/places/istambul.jpg" class="element__photo" alt="Стамбул">
                 <div class="element__information">
                     <p class="element__information__name">Стамбул</p>
-                    <button class="element__information__button" >
-                        <img  src="./images/button/like_button.svg">
-                    </button>
+                    <button class="element__information__button"></button>
                 </div>
             </div>
             <div class="elements__element">
                 <img src="./images/places/jerusalem.jpg" class="element__photo" alt="Иерусалим">
                 <div class="element__information">
                     <p class="element__information__name">Иерусалим</p>
-                    <button class="element__information__button" >
-                        <img  src="./images/button/like_button.svg">
-                    </button>
+                    <button class="element__information__button"></button>
                 </div>
             </div>
             <div class="elements__element">
                 <img src="./images/places/moscow.jpg" class="element__photo" alt="Москва">
                 <div class="element__information">
                     <p class="element__information__name">Москва</p>
-                    <button class="element__information__button" >
-                        <img  src="./images/button/like_button.svg">
-                    </button>
+                    <button class="element__information__button"></button>
                 </div>
             </div>
             <div class="elements__element">
                 <img src="./images/places/noviVinodolski.jpg" class="element__photo" alt="Нови Винодольски">
                 <div class="element__information">
                     <p class="element__information__name">Нови Винодольски</p>
-                    <button class="element__information__button" >
-                        <img  src="./images/button/like_button.svg">
-                    </button>
+                    <button class="element__information__button"></button>
                 </div>
             </div>
             <div class="elements__element">
                 <img src="./images/places/valencia.jpg" class="element__photo" alt="Валенсия">
                 <div class="element__information">
                     <p class="element__information__name">Валенсия</p>
-                    <button class="element__information__button" >
-                        <img  src="./images/button/like_button.svg">
-                    </button>
+                    <button class="element__information__button"></button>
                 </div>
             </div>
         </section>
-        <!--Footer-->
-        <footer class="footer">
-            <p class="footer__text"></p>
-        </footer>
-        <!--Pop-Up-->
-        <div class="pop-up">
-            
-        </div>
     </main>
+        <!--Footer-->
+    <footer class="footer">
+        <p class="footer__text">&copy; 2022 Mesto Russia</p>
+    </footer>
+        <!--Pop-Up-->
+    <div class="pop-up" id="pop-up">
+        <div class="pop-up__container">
+            <button class="container__clouse-button"></button>
+            <div class="container__form">
+                <h1 class="form__title">Редактировать профиль</h1>
+                <form class="form__input">
+                    <input class="input__text" type="text" name="name" id="nameInput" placeholder="Иван Иванов">
+                    <input class="input__text" type="text" name="profession" id="professionInput" placeholder="Профессия">
+                    <button class="input__button" type="submit"><p class="input__button__text">Сохранить</p></button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="./script/script.js"></script>
 </body>
 </html>

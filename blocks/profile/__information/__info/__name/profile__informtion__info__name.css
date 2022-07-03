@@ -4,8 +4,15 @@
     line-height: 1.14;
     font-weight: 500;
     color: white;
+    grid-area: name;
 
     /*intendention and sizing*/ 
     margin: 0 ;
     align-self: end;
+}
+
+@media screen and (max-width: 780px) {
+    .profile__info__information__name {
+        font-size: 27px;
+    }
 }

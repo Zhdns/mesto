@@ -1,13 +1,13 @@
 .element__information__button {
     /*intendation and sizing*/
-    max-width: 26px;
-    
+    min-width: 22px;
+    min-height: 20px;
+    margin: 0;    
 
     /*syle*/
     border-style: none;
     background-color: white;
-}
-
-.aa {
-    margin: 0 auto;
+    background-image: url(../../../../../images/button/like_button.svg);
+    background-repeat: no-repeat;
+    object-fit: contain;
 }

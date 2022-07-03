@@ -1,0 +1,16 @@
+.input__text {
+    /*style*/
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+
+    /*intendention and sizing*/
+    width: 358px;
+    margin: 0 auto 30px;
+    
+}
+
+@media screen and (max-width: 430px) {
+    .input__text {
+        width: 238px;
+    }
+}

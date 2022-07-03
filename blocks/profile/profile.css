@@ -7,5 +7,19 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    justify-items: stretch;
+}
+
+@media screen and (max-width: 910px) {
+    .profile {
+        margin: 35px 20px 45px;
+    }
+    
+}
+
+@media screen and (max-width: 780px) {
+    .profile {
+        flex-direction: column;
+        justify-items: center;
+        justify-content: center;
+    }
 }

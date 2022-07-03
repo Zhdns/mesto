@@ -1,0 +1,21 @@
+.container__clouse-button {
+    /*page-proofs*/
+    grid-area: clouse;
+
+    /*style*/
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: none;
+    background-image: url(../../../../images/button/close__button.svg);
+
+    /*indentantion and sizing*/
+    min-width: 32px;
+    min-height: 32px;
+}
+
+@media screen and (max-width: 530px) {
+    .container__clouse-button {
+        justify-self: end;
+    }
+}

@@ -1,10 +1,8 @@
 .element__information__name {
     /*style*/
     font-size: 24px;
-    font-weight: 900;
     line-height: 1.2;
-
-    /*indentention and sizing*/
+    font-weight: 900;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
