@@ -8,6 +8,9 @@ const formProfession = document.querySelector('#professionInput');
 const submitButton = document.querySelector('.input__button');
 const form = document.querySelector('.form__input');
 
+formName.value = profileName.textContent;
+formProfession.value = profilePofession.textContent;
+
 function openForm() {
     popUp.classList.add('pop-up-open');
     console.log(popUp.className);
@@ -34,9 +37,6 @@ function sendForm(evt) {
 
 popUpOpenButton.addEventListener('click', openForm);
 popUpCloseButton.addEventListener('click', closeForm); 
-
-formName.value = profileName.textContent;
-formProfession.value = profilePofession.textContent;
 form.addEventListener('submit', sendForm);
 
 

@@ -1,15 +1,23 @@
 .input__button {
     /*style*/
     background-color: black;
+    border: none;
 
     /*indentention and sizing*/
     width: 358px;
     margin: 18px auto;
     height: 50px;
+
+    /*animation*/
+    transition: .5s ease-in-out;
 }
 
 @media screen and (max-width: 430px) {
     .input__button {
         width: 238px;
     }
+}
+
+.input__button:hover {
+    background-color: rgba(0, 0, 0, .8)
 }

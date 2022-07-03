@@ -29,3 +29,5 @@
 @import url(../blocks/pop-up/__container/__form/__input/__button/__text/input__button__text.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__text/footer__text.css);
+@import url(../blocks/link-hover/link-hover.css);
+@import url(../blocks/pointer/pointer.css);

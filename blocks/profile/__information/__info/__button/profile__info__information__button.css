@@ -1,19 +1,28 @@
 .profile__info__information__button {
     /*indentention and sizing*/
-    max-width: 24px;
+    width: 24px;
+    height: 24px;
     align-self: end;
     margin: 0 0 8px 0;
-    background-color: transparent;
-    border: none;
+    padding: 0;
+
 
     /*page-proofs*/
     grid-area: button;
+
+    /*style*/
+    background-color: transparent;
+    border: none;
+    background-image: url(../../../../../images/button/Edit_Button.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
 
 }
 
 @media screen and (max-width: 780px) {
     .profile__info__information__button {
-        margin: 0;
-        max-width: 18px;
+        margin: 0 0 5px 0;
+        width: 18px;
+        height: 18px;
     }
 }
