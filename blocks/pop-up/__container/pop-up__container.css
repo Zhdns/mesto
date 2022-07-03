@@ -1,0 +1,31 @@
+.pop-up__container {    
+    /*page-proofs*/
+    display: grid;
+    grid-template-areas: 
+    ". clouse"
+    "form ." ;
+    grid-template-columns: 430px 32px;
+    grid-template-rows: 32px 330px;
+    gap: 8px;
+    
+    /*indentantion and sizing*/
+    margin: 0 auto;
+    max-width: 470px;
+}
+
+@media screen and (max-width: 530px) {
+    .pop-up__container {
+    grid-template-areas: 
+    "clouse"
+    "form" ;
+    grid-template-columns: minmax(282px, 430px);
+    margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .pop-up__container {
+    margin: 0 20px;
+    }
+}
+

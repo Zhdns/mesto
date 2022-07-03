@@ -1,0 +1,13 @@
+.container__form {
+    /*page-proofs*/
+    display: flex;
+    flex-direction: column;
+    grid-area: form;
+
+    /*style*/
+    background-color: white;
+    border-radius: 10px;
+
+    /*intendention and sizing*/
+    max-height: 330px;
+}

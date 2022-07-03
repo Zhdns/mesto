@@ -7,3 +7,9 @@
     /*style*/
     border-radius: 50%;
 }
+
+@media screen and (max-width: 780px) {
+    .profile__information__avatar {
+        margin: 0 auto 22px;
+    }
+}
