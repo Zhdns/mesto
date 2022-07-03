@@ -1,7 +1,9 @@
 .link-hover {
+    /*animation*/
     transition: .5s ease-in-out;
 }
 
 .link-hover:hover {
+    /*style*/
     opacity: .6;
 }
