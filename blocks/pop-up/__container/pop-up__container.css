@@ -3,9 +3,8 @@
     display: grid;
     grid-template-areas: 
     ". clouse"
-    "form ." ;
+    "form .";
     grid-template-columns: 430px 32px;
-    grid-template-rows: 32px 330px;
     gap: 8px;
     
     /*indentantion and sizing*/
@@ -18,7 +17,7 @@
         /*page-proofs*/
         grid-template-areas: 
         "clouse"
-        "form" ;
+        "form";
         grid-template-columns: minmax(282px, 430px);
         
         /*indentantion and sizing*/
