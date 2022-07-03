@@ -6,9 +6,7 @@
     color: white;
 
     /*page-proofs*/
-    grid-area:
-    name;
-
+    grid-area: name;
     /*intendention and sizing*/ 
     margin: 0;
     align-self: end;
