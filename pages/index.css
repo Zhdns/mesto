@@ -1,9 +1,18 @@
+/*main*/
 @import url(../vendor/normalize.css);
 @import url(../blocks/root/root.css);
 @import url(../blocks/main/main.css);
+
+/*pointer and link style*/
+@import url(../blocks/link-hover/link-hover.css);
+@import url(../blocks/pointer/pointer.css);
+
+/*Header*/
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
 @import url(../blocks/header/__line/header__line.css);
+
+/*block Profile*/
 @import url(../blocks//profile/profile.css);
 @import url(../blocks/profile/__information/profile__information.css);
 @import url(../blocks/profile/__information/__avatar/profile__information__avatar.css);
@@ -12,13 +21,23 @@
 @import url(../blocks/profile/__information/__info/__profession/profile__information__info__profession.css);
 @import url(../blocks/profile/__information/__info/__button/profile__info__information__button.css);
 @import url(../blocks/profile/__add-button/profile__add-button.css);
+
+/*block Elements*/
 @import url(../blocks/elements/elements.css);
 @import url(../blocks/elements/__element/elements__element.css);
 @import url(../blocks/elements/__element/__information/element__information.css);
 @import url(../blocks/elements/__element/__information/__name/element__information__name.css);
 @import url(../blocks/elements/__element/__information/__button/element__information__button.css);
+@import url(../blocks/elements/__element/__information/__button/_active/element__information__button_active.css);
 @import url(../blocks/elements/__element/__photo/element__photo.css);
+
+/*block footer*/
+@import url(../blocks/footer/footer.css);
+@import url(../blocks/footer/__text/footer__text.css);
+
+/*block popUp*/
 @import url(../blocks/pop-up/pop-up.css);
+@import url(../blocks/pop-up/_open/pop-up_open.css);
 @import url(../blocks/pop-up/__container/pop-up__container.css);
 @import url(../blocks/pop-up/__container/__clouse-button/container__clouse-button.css);
 @import url(../blocks/pop-up/__container/__form/container__form.css);
@@ -27,7 +46,6 @@
 @import url(../blocks/pop-up/__container/__form/__input/form__input.css);
 @import url(../blocks/pop-up/__container/__form/__title/form__title.css);
 @import url(../blocks/pop-up/__container/__form/__input/__button/__text/input__button__text.css);
-@import url(../blocks/footer/footer.css);
-@import url(../blocks/footer/__text/footer__text.css);
-@import url(../blocks/link-hover/link-hover.css);
-@import url(../blocks/pointer/pointer.css);
+
+
+

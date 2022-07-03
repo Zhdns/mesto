@@ -14,10 +14,12 @@
 
 @media screen and (max-width: 430px) {
     .input__button {
+        /*indentention and sizing*/
         width: 238px;
     }
 }
 
 .input__button:hover {
+    /*style*/
     background-color: rgba(0, 0, 0, .8)
 }

@@ -15,17 +15,21 @@
 
 @media screen and (max-width: 530px) {
     .pop-up__container {
-    grid-template-areas: 
-    "clouse"
-    "form" ;
-    grid-template-columns: minmax(282px, 430px);
-    margin: 0 auto;
+        /*page-proofs*/
+        grid-template-areas: 
+        "clouse"
+        "form" ;
+        grid-template-columns: minmax(282px, 430px);
+        
+        /*indentantion and sizing*/
+        margin: 0 auto;
     }
 }
 
 @media screen and (max-width: 460px) {
     .pop-up__container {
-    margin: 0 20px;
+        /*indentantion and sizing*/
+        margin: 0 20px;
     }
 }
 

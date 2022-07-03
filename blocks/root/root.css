@@ -9,10 +9,12 @@
     font-family: Inter, Arial, Helvetica, sans-serif;
 
     /*page-proofs*/
-
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
 }
 
 :root {
+    /*sizing*/
     --maxWidth: 880px;
 }

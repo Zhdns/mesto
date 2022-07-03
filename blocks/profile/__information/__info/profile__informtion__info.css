@@ -7,10 +7,19 @@
     grid-template-areas:
         "name button"
         "profession profession";
+
+    /*intendention and sizing*/
+    margin: 0;
+
 }
 
 @media screen and (max-width: 780px) {
     .profile__information__info {
+        /*page-proofs*/
+        row-gap: 14px;
+        column-gap: 10px;
+
+        /*intendention and sizing*/
         margin: 0 auto 36px;
     }
 }

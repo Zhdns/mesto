@@ -1,16 +1,17 @@
 .pop-up {
+    /*page-proofs*/
     display: none;
     align-items: center;
     position: fixed;
     top: 0;
     right: 0;
+
+    /*style*/
     background-color:  rgba(0, 0, 0, .7);
+
+    /*intendention and sizing*/
     width: 100%;
     height: 100%;
     
 }
 
-.pop-up-open {
-    display: flex;
-    
-}

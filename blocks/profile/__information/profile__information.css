@@ -2,14 +2,20 @@
     /*page-proofs*/
     display: flex;
     flex-direction: row;
+
+    /*indentention and sizing*/
+    margin: 0;
     
 }
 
 @media screen and (max-width: 780px) {
     .profile__information {
+        /*page-proofs*/
         flex-direction: column;
         justify-items: center;
         justify-content: center;
-        margin: auto;
+
+        /*indentention and sizing*/
+        margin: 0 auto;
     }
 }

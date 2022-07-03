@@ -2,6 +2,8 @@
     /*page-proofs*/
     display: flex;
     flex-direction: column; 
+
+    /*intendention and sizing*/
     margin: 0 auto; 
     max-width: var(--maxWidth);  
 }

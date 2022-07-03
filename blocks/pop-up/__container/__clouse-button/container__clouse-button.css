@@ -12,10 +12,12 @@
     /*indentantion and sizing*/
     min-width: 32px;
     min-height: 32px;
+    margin: 0;
 }
 
 @media screen and (max-width: 530px) {
     .container__clouse-button {
+        /*page-proofs*/
         justify-self: end;
     }
 }

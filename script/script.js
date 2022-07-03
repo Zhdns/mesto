@@ -12,19 +12,19 @@ formName.value = profileName.textContent;
 formProfession.value = profilePofession.textContent;
 
 function openForm() {
-    popUp.classList.add('pop-up-open');
+    popUp.classList.add('pop-up_open');
     console.log(popUp.className);
 }
 
 function closeForm() {
-    popUp.classList.remove('pop-up-open');
+    popUp.classList.remove('pop-up_open');
     console.log(popUp.className);
     formName.value = profileName.textContent;
     formProfession.value = profilePofession.textContent;
 }
 
 function submitForm() {
-    popUp.classList.remove('pop-up-open');
+    popUp.classList.remove('pop-up_open');
     console.log(popUp.className);
 }
 
@@ -38,6 +38,7 @@ function sendForm(evt) {
 popUpOpenButton.addEventListener('click', openForm);
 popUpCloseButton.addEventListener('click', closeForm); 
 form.addEventListener('submit', sendForm);
+
 
 
 

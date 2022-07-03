@@ -1,0 +1,13 @@
+.element__information__button_active {
+        /*intendation and sizing*/
+        min-width: 22px;
+        min-height: 20px;
+        margin: 0;    
+    
+        /*syle*/
+        border-style: none;
+        background-color: transparent;
+        background-image: url(../../../../../../images/button/like__button__active.svg);
+        background-repeat: no-repeat;
+        object-fit: contain;
+    }
