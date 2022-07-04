@@ -1,12 +1,12 @@
 const popUpOpenButton = document.querySelector('.profile__info-button');
-const popUpCloseButton = document.querySelector('.container__clouse-button');
+const popUpCloseButton = document.querySelector('.pop-up__clouse-button');
 const popUp = document.querySelector('.pop-up');
 const profileName = document.querySelector('.profile__info-name');
 const profilePofession = document.querySelector('.profile__info-profession');
 const formName = document.querySelector('#nameInput');
 const formProfession = document.querySelector('#professionInput');
-const submitButton = document.querySelector('.input__button');
-const form = document.querySelector('.form__input');
+const submitButton = document.querySelector('.pop-up__input-button');
+const form = document.querySelector('.pop-up__form-input');
 
 formName.value = profileName.textContent;
 formProfession.value = profilePofession.textContent;

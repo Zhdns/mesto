@@ -1,4 +1,4 @@
-.container__clouse-button {
+.pop-up__clouse-button {
     /*page-proofs*/
     grid-area: clouse;
 
@@ -16,7 +16,7 @@
 }
 
 @media screen and (max-width: 530px) {
-    .container__clouse-button {
+    .pop-up__clouse-button {
         /*page-proofs*/
         justify-self: end;
     }

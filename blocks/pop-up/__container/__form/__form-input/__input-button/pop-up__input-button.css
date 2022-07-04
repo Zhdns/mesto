@@ -1,4 +1,4 @@
-.input__button {
+.pop-up__input-button {
     /*style*/
     background-color: black;
     border: none;
@@ -19,13 +19,13 @@
 }
 
 @media screen and (max-width: 430px) {
-    .input__button {
+    .pop-up__input-button {
         /*indentention and sizing*/
         width: 238px;
     }
 }
 
-.input__button:hover {
+.pop-up__input-button:hover {
     /*style*/
     background-color: rgba(0, 0, 0, .8);
 }

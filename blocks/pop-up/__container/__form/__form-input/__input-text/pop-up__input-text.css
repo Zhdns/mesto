@@ -1,4 +1,4 @@
-.input__text {
+.pop-up__input-text {
     /*style*/
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, .2);
@@ -14,7 +14,7 @@
 }
 
 @media screen and (max-width: 430px) {
-    .input__text {
+    .pop-up__input-text {
         /*intendention and sizing*/
         width: 238px;
     }
