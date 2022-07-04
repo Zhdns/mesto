@@ -1,4 +1,4 @@
-.profile__information__avatar {
+.information__avatar {
     /*intendention and sizing*/
     max-width: 120px;
     max-height: 120px;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (max-width: 780px) {
-    .profile__information__avatar {
+    .information__avatar {
         /*intendention and sizing*/
         margin: 0 auto 22px;
     }

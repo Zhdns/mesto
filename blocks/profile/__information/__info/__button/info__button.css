@@ -1,4 +1,4 @@
-.profile__info__information__button {
+.info__button {
     /*indentention and sizing*/
     width: 24px;
     height: 24px;
@@ -19,7 +19,7 @@
 }
 
 @media screen and (max-width: 780px) {
-    .profile__info__information__button {
+    .info__button {
         /*indentention and sizing*/
         margin: 0 0 5px 0;
         width: 18px;

@@ -1,4 +1,4 @@
-.profile__information__info {
+.information__info {
     /*page-proofs*/
     display: grid;
     grid-template-columns: 1fr auto;

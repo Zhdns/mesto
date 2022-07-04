@@ -1,7 +1,7 @@
 .profile {
     /*intendention and sizing*/
     max-width: var(--maxWidth);
-    margin: 35px auto 45px;
+    margin: 40px auto 51px;
     
     /*page-proofs*/
     display: flex;
