@@ -1,4 +1,4 @@
-.profile__information {
+.profile__account {
     /*page-proofs*/
     display: flex;
     flex-direction: row;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (max-width: 780px) {
-    .profile__information {
+    .profile__account {
         /*page-proofs*/
         flex-direction: column;
         justify-items: center;

@@ -14,22 +14,23 @@
 
 /*block Profile*/
 @import url(../blocks//profile/profile.css);
-@import url(../blocks/profile/__information/profile__information.css);
-@import url(../blocks/profile/__information/__avatar/information__avatar.css);
-@import url(../blocks/profile/__information/__info/informtion__info.css);
-@import url(../blocks/profile/__information/__info/__profession/info__profession.css);
-@import url(../blocks/profile/__information/__info/__name/info__name.css);
-@import url(../blocks/profile/__information/__info/__button/info__button.css);
 @import url(../blocks/profile/__add-button/profile__add-button.css);
+@import url(../blocks/profile/__account/profile__account.css);
+@import url(../blocks/profile/__account/profile__account.css);
+@import url(../blocks/profile/__account/__avatar/profile__account__avatar.css);
+@import url(../blocks/profile/__account/__info/profile__account__info.css);
+@import url(../blocks/profile/__account/__info/__profession/profile__account__info__profession.css);
+@import url(../blocks/profile/__account/__info/__name/profile__account__info__name.css);
+@import url(../blocks/profile/__account/__info/__button/profile__account__info__button.css);
 
 /*block Elements*/
 @import url(../blocks/elements/elements.css);
-@import url(../blocks/elements/__element/elements__element.css);
-@import url(../blocks/elements/__element/__information/element__information.css);
-@import url(../blocks/elements/__element/__information/__name/element__information__name.css);
-@import url(../blocks/elements/__element/__information/__button/element__information__button.css);
-@import url(../blocks/elements/__element/__information/__button/_active/element__information__button_active.css);
-@import url(../blocks/elements/__element/__photo/element__photo.css);
+@import url(../blocks/elements/__card/elements__card.css);
+@import url(../blocks/elements/__card/__photo/elements__card__photo.css);
+@import url(../blocks/elements/__card/__information/elements__card__information.css);
+@import url(../blocks/elements/__card/__information/__name/elements__card__information__name.css);
+@import url(../blocks/elements/__card/__information/__button/elements__card__information__button.css);
+@import url(../blocks/elements/__card/__information/__button/_active/elements__card__information__button_active.css);
 
 /*block footer*/
 @import url(../blocks/footer/footer.css);
@@ -45,7 +46,6 @@
 @import url(../blocks/pop-up/__container/__form/__input/__button/input__button.css);
 @import url(../blocks/pop-up/__container/__form/__input/form__input.css);
 @import url(../blocks/pop-up/__container/__form/__title/form__title.css);
-@import url(../blocks/pop-up/__container/__form/__input/__button/__text/input__button__text.css);
 
 
 

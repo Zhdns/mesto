@@ -1,4 +1,4 @@
-.info__profession {
+.profile__account__info__profession {
     /*style*/
     font-size: 18px;
     line-height: 1.21;
@@ -13,7 +13,7 @@
 }
 
 @media screen and (max-width: 780px) {
-    .info__profession {
+    .profile__account__info__profession {
         /*intendention and sizing*/
         margin: 0 auto;
 
