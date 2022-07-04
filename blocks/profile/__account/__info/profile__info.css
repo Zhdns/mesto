@@ -1,4 +1,4 @@
-.profile__account__info {
+.profile__info {
     /*page-proofs*/
     display: grid;
     grid-template-columns: 1fr auto;
@@ -14,7 +14,7 @@
 }
 
 @media screen and (max-width: 780px) {
-    .profile__account__info {
+    .profile__info {
         /*page-proofs*/
         row-gap: 14px;
         column-gap: 10px;
