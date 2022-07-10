@@ -7,9 +7,13 @@
 
     /*page-proofs*/
     grid-area: profession;
-
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    
     /*intendention and sizing*/
     margin: 0;
+    max-width: 550px;
 }
 
 @media screen and (max-width: 780px) {

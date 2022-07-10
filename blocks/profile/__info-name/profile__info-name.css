@@ -7,14 +7,29 @@
 
     /*page-proofs*/
     grid-area: name;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
     /*intendention and sizing*/
     margin: 0;
     align-self: end;
+    max-width: 500px;
+}
+
+
+@media screen and (max-width: 900px) {
+    .profile__info-name {
+        /*intendention and sizing*/
+        max-width: 300px;
+    }
 }
 
 @media screen and (max-width: 780px) {
     .profile__info-name {
         /*style*/
         font-size: 27px;
+
+        /*intendention and sizing*/
+        max-width: 300px;
     }
 }

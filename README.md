@@ -17,7 +17,7 @@ JS
 
 **Технологии**
 GitPAGEs
-https://zhdns.github.io/mesto/index.html
+https://zhdns.github.io/mesto/Index.html
 
 
 Удачи!

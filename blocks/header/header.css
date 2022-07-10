@@ -1,10 +1,22 @@
 .header {
     /*page-proofs*/
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
+    position: relative; 
+
 
     /*intendention and sizing*/
     margin: 0 auto;
     max-width: var(--maxWidth);  
+}
+
+.header::after { 
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #545454;
+    height: 1px;
 }
 
