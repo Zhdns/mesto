@@ -6,7 +6,7 @@
 
     /*syle*/
     border-style: none;
-    background-color: white;
+    background-color: transparent;
     background-image: url(../../../images/button/like_button.svg);
     background-repeat: no-repeat;
     object-fit: contain;

@@ -1,6 +1,10 @@
 .pop-up__clouse-button {
     /*page-proofs*/
-    grid-area: clouse;
+    /*grid-area: clouse;*/
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    
 
     /*style*/
     background-color: transparent;
@@ -18,6 +22,9 @@
 @media screen and (max-width: 530px) {
     .pop-up__clouse-button {
         /*page-proofs*/
-        justify-self: end;
+        right: 0;
+        top: -39px;
+        min-width: 20px;
+        min-height: 20px;
     }
 }

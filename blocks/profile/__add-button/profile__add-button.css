@@ -4,20 +4,26 @@
     width: 150px;
     height: 50px;
     margin: 0 0 18px 0;
+    background-size: 22px 16px;
+    background-position: center;
+    padding: 0;
+
 
     /*style*/
     background-color: transparent;
-    border: none;
-    background-image: url(../../../images/button/Add_Button.svg);
+    border: solid;
+    color: white;
+    border-radius: 2px;
+    background-image: url(../../../images/button/addButton.svg);
     background-repeat: no-repeat;
 }
 
 @media screen and (max-width: 780px) {
     .profile__add-button {
         /*style*/
-        background-image: url(../../../images/button/Add__Button_mobile.svg);
-
         /*intendetion and sizing*/
         width: 282px;
+        margin: 0 auto;
+        
     }
 }

@@ -2,12 +2,25 @@
     /*page-proofs*/
     display: flex;
     flex-direction: column;
-    grid-area: form;
+    box-sizing: border-box;
+    /*grid-area: form;*/
+    position: relative;
 
     /*style*/
     background-color: white;
     border-radius: 10px;
 
     /*intendention and sizing*/
-    margin: 0;
+    margin: 0 auto;
+    max-width: 430px ;
+    min-height: 330px;
+    padding: 34px 36px 37px;
+}
+
+@media screen and (max-width: 430px ) {
+    .pop-up__form {
+        /*intendention and sizing*/
+        min-height: 272px;
+        padding: 25px 22px 25px;
+    }
 }

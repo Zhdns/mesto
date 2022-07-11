@@ -3,19 +3,22 @@
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, .2);
     font-size: 14px;
-    line-height: 1.4;
+    line-height: 1.2;
     font-weight: 400;
     
 
     /*intendention and sizing*/
-    width: 358px;
+    min-height: 29px;
     margin: 0 auto 30px;
-    padding-bottom: 13px;
+    padding: 0;
+    width: 100%;
+    
 }
+
 
 @media screen and (max-width: 430px) {
     .pop-up__input-text {
         /*intendention and sizing*/
-        width: 238px;
+        
     }
 }

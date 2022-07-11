@@ -9,7 +9,7 @@
 
     /*indentention and sizing*/
     width: 358px;
-    margin: 18px auto 37px;
+    margin: 18px auto 0;
     height: 50px;
     padding: 0;
     text-align: center;    
@@ -22,6 +22,9 @@
     .pop-up__input-button {
         /*indentention and sizing*/
         width: 238px;
+        margin: 15px auto 0;
+        font-size: 14px;
+        height: 45px;
     }
 }
 
