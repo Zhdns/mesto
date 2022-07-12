@@ -16,8 +16,13 @@
 @media screen and (max-width: 780px) {
     .profile__info {
         /*page-proofs*/
-        row-gap: 14px;
+        row-gap: 10px;
         column-gap: 10px;
+        grid-template-columns: 1fr 189px 1fr;
+        grid-template-areas:
+        ". name button"
+        ". profession .";
+        align-items: center;
 
         /*intendention and sizing*/
         margin: 0 auto 30px;
