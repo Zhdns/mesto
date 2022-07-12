@@ -8,6 +8,7 @@
 
     /*page-proofs*/
     grid-area: button;
+    cursor: pointer;
 
     /*style*/
     background-color: transparent;
@@ -15,7 +16,6 @@
     background-image: url(../../../images/button/Edit_Button.svg);
     background-repeat: no-repeat;
     background-size: contain;
-
 }
 
 @media screen and (max-width: 780px) {

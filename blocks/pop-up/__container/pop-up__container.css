@@ -1,9 +1,8 @@
-.pop-up__form {
+.pop-up__container {
     /*page-proofs*/
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    /*grid-area: form;*/
     position: relative;
 
     /*style*/
@@ -18,7 +17,7 @@
 }
 
 @media screen and (max-width: 430px ) {
-    .pop-up__form {
+    .pop-up__container {
         /*intendention and sizing*/
         min-height: 272px;
         padding: 25px 22px 25px;

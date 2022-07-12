@@ -1,5 +1,5 @@
 const popUpOpenButton = document.querySelector('.profile__info-button');
-const popUpCloseButton = document.querySelector('.pop-up__clouse-button');
+const popUpCloseButton = document.querySelector('.pop-up__close-button');
 const popUp = document.querySelector('.pop-up');
 const profileName = document.querySelector('.profile__info-name');
 const profilePofession = document.querySelector('.profile__info-profession');
@@ -31,6 +31,7 @@ function sendForm(evt) {
 popUpOpenButton.addEventListener('click', openForm);
 popUpCloseButton.addEventListener('click', closeForm); 
 form.addEventListener('submit', sendForm);
+
 
 
 

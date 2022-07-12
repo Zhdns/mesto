@@ -12,7 +12,10 @@
     margin: 18px auto 0;
     height: 50px;
     padding: 0;
-    text-align: center;    
+    text-align: center; 
+
+    /*page-proofs*/
+    cursor: pointer;
 
     /*animation*/
     transition: .5s ease-in-out;

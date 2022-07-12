@@ -16,7 +16,6 @@
     max-width: 500px;
 }
 
-
 @media screen and (max-width: 900px) {
     .profile__info-name {
         /*intendention and sizing*/
@@ -28,8 +27,5 @@
     .profile__info-name {
         /*style*/
         font-size: 27px;
-
-        /*intendention and sizing*/
-        max-width: 300px;
     }
 }

@@ -1,5 +1,7 @@
-.pop-up__clouse-button {
+.pop-up__close-button {
     /*page-proofs*/
+    cursor: pointer;
+
     /*grid-area: clouse;*/
     position: absolute;
     top: -40px;
@@ -20,7 +22,7 @@
 }
 
 @media screen and (max-width: 530px) {
-    .pop-up__clouse-button {
+    .pop-up__close-button {
         /*page-proofs*/
         right: 0;
         top: -39px;

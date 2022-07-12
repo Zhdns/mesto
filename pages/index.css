@@ -6,7 +6,6 @@
 
 /*pointer and link style*/
 @import url(../blocks/link-hover/link-hover.css);
-@import url(../blocks/page-section/page-section.css);
 
 /*Header*/
 @import url(../blocks/header/header.css);
@@ -39,9 +38,9 @@
 @import url(../blocks/pop-up/_open/pop-up_open.css);
 @import url(../blocks/pop-up/__input-text/pop-up__input-text.css);
 @import url(../blocks/pop-up/__input-button/pop-up__input-button.css);
-@import url(../blocks/pop-up/__form/pop-up__form.css);
+@import url(../blocks/pop-up/__container/pop-up__container.css);
 @import url(../blocks/pop-up/__title/pop-up__title.css);
 @import url(../blocks/pop-up/__form-input/pop-up__form-input.css);
-@import url(../blocks/pop-up/__clouse-button/pop-up__clouse-button.css);
+@import url(../blocks/pop-up/__close-button/pop-up__close-button.css);
 
 
