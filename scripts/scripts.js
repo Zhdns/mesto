@@ -53,6 +53,7 @@ function cards(item) {
         previewCloseButton.addEventListener('click', function(){
             cardPreview.classList.remove('pop-up_open')
         })
+        
         return card
 };
 
@@ -111,6 +112,7 @@ nameForm.addEventListener('submit', sendForm);
 //card form
 addCardButton.addEventListener('click', openCardForm);
 closeCardButton.addEventListener('click', closeCardForm);
+cardForm.addEventListener('submit', addCard);
 
 
 
