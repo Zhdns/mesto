@@ -1,6 +1,9 @@
 .pop-up {
     /*page-proofs*/
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility .4s, opacity .4s ease-in;
+    display: flex;
     align-items: center;
     justify-content: center;
     position: fixed;

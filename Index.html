@@ -26,7 +26,7 @@
         </section>
         <!--Elements-->
         <section class="elements">
-            <div class="elements__card">
+            <!--<div class="elements__card">
                 <img src="./images/places/deadsea.png" class="elements__photo" alt="Мертвое Море">
                 <div class="elements__information">
                     <h2 class="elements__information-name">Мертвое Море</h2>
@@ -67,7 +67,7 @@
                     <h2 class="elements__information-name">Валенсия</h2>
                     <button class="elements__information-button link-hover" type="button"></button>
                 </div>
-            </div>
+            </div>-->
         </section>
     </main>
         <!--Footer-->
@@ -75,17 +75,46 @@
         <p class="footer__text">&copy; 2022 Mesto Russia</p>
     </footer>
         <!--Pop-Up-->
-    <div class="pop-up" id="pop-up">
+    <div class="pop-up" id="pop-up-profile-form">
             <div class="pop-up__container">
-                <button class="pop-up__close-button link-hover" type="button"></button>
+                <button class="pop-up__close-button link-hover" type="button" id="close-name-form"></button>
                 <h1 class="pop-up__title">Редактировать профиль</h1>
-                <form class="pop-up__form-input" name="information">
+                <form class="pop-up__form-input" name="information" id="name-form" >
                     <input class="pop-up__input-text" type="text" name="nick" id="nameInput" placeholder="Иван Иванов">
                     <input class="pop-up__input-text" type="text" name="profession" id="professionInput" placeholder="Профессия">
-                    <button class="pop-up__input-button" type="submit">Сохранить</button>
+                    <button class="pop-up__input-button" type="submit" id="submit-name">Сохранить</button>
                 </form>
             </div>
     </div>
+    <div class="pop-up" id="pop-up-card-form">
+        <div class="pop-up__container">
+            <button class="pop-up__close-button link-hover" type="button" id="close-card-form"></button>
+            <h1 class="pop-up__title">Новое место</h1>
+            <form class="pop-up__form-input" name="card" id="card-form">
+                <input class="pop-up__input-text" type="text" name="cardName" id="cardNameInput" placeholder="Москва" required>
+                <input class="pop-up__input-text" type="url" name="PhotoLink" id="cardLinkInput" placeholder="www.site.ru" required>
+                <button class="pop-up__input-button" type="submit" id="subbmit-card">Создать</button>
+            </form>
+        </div>
+</div>
+<div class="pop-up" id="popUpImg">
+    <div class="pop-up__container-img">
+        <img class="pop-up__img">
+        <p class="pop-up__text-img"></p>
+        <button class="pop-up__close-button" id="previewCloseButton"></button>
+    </div>
+</div>
+<template id="card-template">
+    <div class="elements__card">
+        <img  class="elements__photo">
+        <button class="elements__delete-button link-hover" type="button"></button>
+        <div class="elements__information">
+            <h2 class="elements__information-name"></h2>
+            <button class="elements__information-button link-hover" type="button"></button>
+        </div>
+    </div> 
+</template>
+    <script src="./scripts/cards.js"></script>
     <script src="./scripts/scripts.js"></script>
 </body>
 </html>

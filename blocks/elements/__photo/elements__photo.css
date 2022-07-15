@@ -1,12 +1,11 @@
 .elements__photo {
     /*intendetion and sizing*/
     margin: 0;
-    width: 100%;
-    min-width: 282px;
-    min-height: 282px;
+    width: 282px;
+    height: 282px;
 
     /*page-proofs*/
-    object-fit: contain;
+    object-fit: cover;
     display: block;
     
 }

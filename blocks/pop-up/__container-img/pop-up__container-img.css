@@ -1,0 +1,7 @@
+.pop-up__container-img {
+    /*page-proofs*/
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+}
