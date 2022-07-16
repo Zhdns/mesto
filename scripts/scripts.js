@@ -69,6 +69,8 @@ function openNameForm() {
 }
 
 function openCardForm() {
+    cardNameInput.value = ""
+    cardLinkInput.value = ""
     editCardForm.classList.add('pop-up_open');
 }
 
