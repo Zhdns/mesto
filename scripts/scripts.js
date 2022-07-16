@@ -1,5 +1,5 @@
 
-//Edit Nama and Profession form
+//Edit Name and Profession form
 const editNameButton = document.querySelector('.profile__info-button');
 const closeEditNameForm = document.querySelector('#close-name-form');
 const editNameForm = document.querySelector('#pop-up-profile-form');
@@ -7,7 +7,6 @@ const profileName = document.querySelector('.profile__info-name');
 const profilePofession = document.querySelector('.profile__info-profession');
 const formName = document.querySelector('#nameInput');
 const formProfession = document.querySelector('#professionInput');
-const submitNameEditForm = document.querySelector('#submit-name');
 const nameForm = document.querySelector('#name-form');
 
 //Add new card form
@@ -15,7 +14,6 @@ const addCardButton = document.querySelector('.profile__add-button');
 const closeCardButton = document.querySelector('#close-card-form');
 const cardNameInput = document.querySelector('#cardNameInput');
 const cardLinkInput = document.querySelector('#cardLinkInput');
-const submitCardForm = document.querySelector('#subbmit-card');
 const editCardForm = document.querySelector('#pop-up-card-form');
 const cardForm = document.querySelector('#card-form');
 const cardTemplate = document.querySelector('#card-template').content;
