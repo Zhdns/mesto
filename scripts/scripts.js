@@ -5,7 +5,7 @@ const photoPopUp = document.querySelector('#popUpImg')
 
 //Edit Name and Profession form
 const profileEditButton = document.querySelector('.profile__info-button');
-const closeEditNameForm = document.querySelector('#close-name-form');
+const profileCloseButton = document.querySelector('#close-name-form');
 const profileName = document.querySelector('.profile__info-name');
 const profilePofession = document.querySelector('.profile__info-profession');
 const formName = document.querySelector('#nameInput');
@@ -14,12 +14,12 @@ const nameForm = document.querySelector('#name-form');
 
 //Add new card form
 const newCardButton = document.querySelector('.profile__add-button');
-const closeCardButton = document.querySelector('#close-card-form');
+const cardCloseButton = document.querySelector('#close-card-form');
 const cardNameInput = document.querySelector('#cardNameInput');
 const cardLinkInput = document.querySelector('#cardLinkInput');
 const cardForm = document.querySelector('#card-form');
 const cardTemplate = document.querySelector('#card-template').content;
-const allCards = document.querySelector('.elements');
+const cardsContainer = document.querySelector('.elements');
 
 
 //preview
@@ -32,24 +32,24 @@ function addCards(item) {
         const card = cardTemplate.querySelector('.elements__card').cloneNode(true);
         const cardPhoto = card.querySelector('.elements__photo')
         const cardName = card.querySelector('.elements__information-name')
-        const handleLikeButton = card.querySelector('.elements__information-button')
-        const handleDeleteButton = card.querySelector('.elements__delete-button')
+        const buttonLike = card.querySelector('.elements__information-button')
+        const buttonDelete = card.querySelector('.elements__delete-button')
 
         cardPhoto.src = item.link
         cardPhoto.alt = item.name
         cardName.textContent = item.name
         
 
-        handleLikeButton.addEventListener('click', (e) => {
+        buttonLike.addEventListener('click', (e) => {
             e.target.classList.toggle('elements__information-button_active')
         })
 
-        handleDeleteButton.addEventListener('click', (e) =>{
+        buttonDelete.addEventListener('click', (e) =>{
             e.target.closest('.elements__card').remove()
         })
 
         cardPhoto.addEventListener('click', function(){
-            open(photoPopUp)
+            openPopUp(photoPopUp)
             previewPhoto.src = item.link
             previewPhoto.alt = item.name
             previewText.textContent = item.name
@@ -61,29 +61,29 @@ function addCards(item) {
 };
 
 //preinstalled cards 
-cardsPreset.forEach((item) => {allCards.prepend(addCards(item))})
+cardsPreset.forEach((item) => {cardsContainer.prepend(addCards(item))})
 
 
 //Open form
-function open(form){
+function openPopUp(form){
     form.classList.add('pop-up_open');
 }
 
 function openNameForm() {
     formName.value = profileName.textContent;
     formProfession.value = profilePofession.textContent;
-    open(profilePopUp)
+    openPopUp(profilePopUp)
 }
 
 function openCardForm() {
     cardNameInput.value = ""
     cardLinkInput.value = ""
-    open(cardPopUp)
+    openPopUp(cardPopUp)
 }
 
 
 //Clouse form
-function close(form) {
+function closePopUp(form) {
     form.classList.remove('pop-up_open');
 }
 
@@ -93,7 +93,7 @@ function sendForm(e) {
     e.preventDefault();
     profileName.textContent = formName.value;
     profilePofession.textContent = formProfession.value;
-    close(profilePopUp);
+    closePopUp(profilePopUp);
 }
 
 function addNewCard(e) {
@@ -103,19 +103,19 @@ function addNewCard(e) {
             link: cardLinkInput.value,
         }
 
-    allCards.prepend(addCards(newCard))
-    close(cardPopUp)
+    cardsContainer.prepend(addCards(newCard))
+    closePopUp(cardPopUp)
 }
 
 //edit form
 profileEditButton.addEventListener('click', openNameForm);
-closeEditNameForm.addEventListener('click',  () => close(profilePopUp)); 
+profileCloseButton.addEventListener('click',  () => closePopUp(profilePopUp)); 
 nameForm.addEventListener('submit', sendForm);
 
 //card form
 newCardButton.addEventListener('click', openCardForm);
-closeCardButton.addEventListener('click', () => close(cardPopUp));
-previewCloseButton.addEventListener('click', () => close(photoPopUp));
+cardCloseButton.addEventListener('click', () => closePopUp(cardPopUp));
+previewCloseButton.addEventListener('click', () => closePopUp(photoPopUp));
 cardForm.addEventListener('submit', addNewCard);
 
 
