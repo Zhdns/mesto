@@ -4,6 +4,7 @@
     flex-direction: column;
     box-sizing: border-box;
     position: relative;
+    cursor: default;
 
     /*style*/
     background-color: white;

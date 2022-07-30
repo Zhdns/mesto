@@ -70,7 +70,7 @@ cardsPreset.forEach((item) => {cardsContainer.prepend(addCards(item))})
 function openPopUp(form){
     form.classList.add('pop-up_open');
     document.addEventListener('keydown', closeByEscape)
-    console.log('popIsOpen')
+    form.addEventListener('click', closeOnOverlay)
 }
 
 function openNameForm() {
@@ -92,16 +92,22 @@ function openCardForm() {
 //Clouse form
 function closePopUp(form) {
     form.classList.remove('pop-up_open');
-    document.removeEventListener('keydown', closeByEscape)
-    console.log('popIsClose')
+    document.removeEventListener('keydown', closeByEscape)    
 }
 
-//ecs
+//esc
 function closeByEscape(e) {
     if (e.key === 'Escape') {
         const popUp = document.querySelector('.pop-up_open');
+        closePopUp(popUp); 
+    }
+}
+
+//click on overlay 
+function closeOnOverlay(e) {
+    const popUp = document.querySelector('.pop-up_open');
+    if (e.target === popUp) {
         closePopUp(popUp);
-        console.log('escInde');
     }
 }
 
@@ -137,17 +143,4 @@ previewCloseButton.addEventListener('click', () => closePopUp(photoPopUp));
 formCard.addEventListener('submit', addNewCard);
 
 
-
-
-
-
-//sprint 
-//close popup
-
-function closeByEscape(e) {
-    if (e.key === 'escape') {
-        const popUp = document.querySelector('.pop-up_open')
-        closePopUp(popUp)
-    }
-}
 

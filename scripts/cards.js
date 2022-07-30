@@ -1,6 +1,6 @@
 const cardsPreset = [
     {
-        name: 'Метртвое море',
+        name: 'Мертвое море',
         link: './images/places/deadsea.png', 
     },
     {
@@ -20,7 +20,7 @@ const cardsPreset = [
         link: './images/places/noviVinodolski.jpg',
     },
     {
-        name: 'Валенисия',
+        name: 'Валенсия',
         link: './images/places/valencia.jpg',
     },
 ];
