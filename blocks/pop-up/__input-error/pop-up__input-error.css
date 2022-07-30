@@ -1,0 +1,15 @@
+.pop-up__input-error {
+    /*page-proofs*/
+    position: absolute;
+    top: calc(100% - 6px);
+    opacity: 0;
+
+    /*style*/
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: red;
+
+    /*intendention and sizing*/
+    
+}

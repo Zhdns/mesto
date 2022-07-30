@@ -38,10 +38,18 @@
             <div class="pop-up__container">
                 <button class="pop-up__close-button link-hover" type="button" id="close-name-form"></button>
                 <h1 class="pop-up__title">Редактировать профиль</h1>
-                <form class="pop-up__form-input" name="information" id="name-form" >
-                    <input class="pop-up__input-text" type="text" name="nick" id="nameInput" placeholder="Иван Иванов">
-                    <input class="pop-up__input-text" type="text" name="profession" id="professionInput" placeholder="Профессия">
-                    <button class="pop-up__input-button" type="submit" id="submit-name">Сохранить</button>
+                <form class="pop-up__form-input" name="profile" id="name-form" novalidate>
+                    <fieldset class="pop-up__fieldset">
+                        <label class="pop-up__label">
+                            <input class="pop-up__input-text" type="text" name="nick" id="pop-up__name-input" placeholder="Иван Иванов" required minlength="2" maxlength="40">
+                            <span class="pop-up__input-error" id="pop-up__name-input-error"></span>
+                        </label>
+                        <label class="pop-up__label">
+                            <input class="pop-up__input-text" type="text" name="profession" id="pop-up__profession-input" placeholder="Профессия" required minlength="2" maxlength="200">
+                            <span class="pop-up__input-error" id="pop-up__profession-input-error"></span>
+                        </label>        
+                            <button class="pop-up__input-button" type="submit" id="submit-name">Сохранить</button>
+                    </fieldset>    
                 </form>
             </div>
     </div>
@@ -49,10 +57,18 @@
         <div class="pop-up__container">
             <button class="pop-up__close-button link-hover" type="button" id="close-card-form"></button>
             <h1 class="pop-up__title">Новое место</h1>
-            <form class="pop-up__form-input" name="card" id="card-form">
-                <input class="pop-up__input-text" type="text" name="cardName" id="cardNameInput" placeholder="Москва" required>
-                <input class="pop-up__input-text" type="url" name="PhotoLink" id="cardLinkInput" placeholder="www.site.ru" required>
-                <button class="pop-up__input-button" type="submit" id="subbmit-card">Создать</button>
+            <form class="pop-up__form-input" name="card" id="card-form" novalidate>
+                <fieldset class="pop-up__fieldset">
+                    <label class="pop-up__label">
+                        <input class="pop-up__input-text" type="text" name="cardName" id="cardNameInput" placeholder="Москва" required minlength="2" maxlength="30">
+                        <span class="pop-up__input-error" id="cardNameInput-error"></span>
+                    </label>     
+                    <label class="pop-up__label">
+                        <input class="pop-up__input-text" type="url" name="photoLink" id="cardLinkInput" placeholder="www.site.ru" required>
+                        <span class="pop-up__input-error" id="cardLinkInput-error"></span>
+                    </label> 
+                        <button class="pop-up__input-button" type="submit" id="subbmit-card">Создать</button>
+                </fieldset> 
             </form>
         </div>
 </div>
@@ -74,6 +90,7 @@
     </div> 
 </template>
     <script src="./scripts/cards.js"></script>
+    <script src="./scripts/validation.js"></script>
     <script src="./scripts/scripts.js"></script>
 </body>
 </html>

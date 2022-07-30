@@ -1,0 +1,15 @@
+.pop-up__label {
+    /*page-proof*/
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    /*intendention and sizing*/
+    min-height: 44px;
+    margin: 0 auto 13px;
+}
+
+.pop-up__label:last-child {
+    /*intemdemtion and sizing*/
+    margin: 0 auto 31px;
+}

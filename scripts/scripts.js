@@ -8,16 +8,14 @@ const profileEditButton = document.querySelector('.profile__info-button');
 const profileCloseButton = document.querySelector('#close-name-form');
 const profileName = document.querySelector('.profile__info-name');
 const profilePofession = document.querySelector('.profile__info-profession');
-const formName = document.querySelector('#nameInput');
-const formProfession = document.querySelector('#professionInput');
-const nameForm = document.querySelector('#name-form');
+const formName = document.querySelector('#pop-up__name-input');
+const formProfession = document.querySelector('#pop-up__profession-input');
 
 //Add new card form
 const newCardButton = document.querySelector('.profile__add-button');
 const cardCloseButton = document.querySelector('#close-card-form');
 const cardNameInput = document.querySelector('#cardNameInput');
 const cardLinkInput = document.querySelector('#cardLinkInput');
-const cardForm = document.querySelector('#card-form');
 const cardTemplate = document.querySelector('#card-template').content;
 const cardsContainer = document.querySelector('.elements');
 
@@ -26,6 +24,7 @@ const cardsContainer = document.querySelector('.elements');
 const previewPhoto = document.querySelector('.pop-up__img')
 const previewText = document.querySelector('.pop-up__text-img')
 const previewCloseButton = document.querySelector('#previewCloseButton')
+
 
 //card function
 function addCards(item) {
@@ -64,20 +63,28 @@ function addCards(item) {
 cardsPreset.forEach((item) => {cardsContainer.prepend(addCards(item))})
 
 
+
+
+
 //Open form
 function openPopUp(form){
     form.classList.add('pop-up_open');
+    document.addEventListener('keydown', closeByEscape)
+    console.log('popIsOpen')
 }
 
 function openNameForm() {
     formName.value = profileName.textContent;
     formProfession.value = profilePofession.textContent;
+    hideInputError(formProfile, formProfileInput)
+    enableValidation()
     openPopUp(profilePopUp)
 }
 
 function openCardForm() {
     cardNameInput.value = ""
     cardLinkInput.value = ""
+    hideInputError(formCard, formCardInput)
     openPopUp(cardPopUp)
 }
 
@@ -85,6 +92,17 @@ function openCardForm() {
 //Clouse form
 function closePopUp(form) {
     form.classList.remove('pop-up_open');
+    document.removeEventListener('keydown', closeByEscape)
+    console.log('popIsClose')
+}
+
+//ecs
+function closeByEscape(e) {
+    if (e.key === 'Escape') {
+        const popUp = document.querySelector('.pop-up_open');
+        closePopUp(popUp);
+        console.log('escInde');
+    }
 }
 
 
@@ -110,16 +128,26 @@ function addNewCard(e) {
 //edit form
 profileEditButton.addEventListener('click', openNameForm);
 profileCloseButton.addEventListener('click',  () => closePopUp(profilePopUp)); 
-nameForm.addEventListener('submit', sendForm);
+formProfile.addEventListener('submit', sendForm);
 
 //card form
 newCardButton.addEventListener('click', openCardForm);
 cardCloseButton.addEventListener('click', () => closePopUp(cardPopUp));
 previewCloseButton.addEventListener('click', () => closePopUp(photoPopUp));
-cardForm.addEventListener('submit', addNewCard);
+formCard.addEventListener('submit', addNewCard);
 
 
 
 
 
+
+//sprint 
+//close popup
+
+function closeByEscape(e) {
+    if (e.key === 'escape') {
+        const popUp = document.querySelector('.pop-up_open')
+        closePopUp(popUp)
+    }
+}
 

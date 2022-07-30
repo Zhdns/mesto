@@ -48,5 +48,9 @@
 @import url(../blocks/pop-up/__text-img/pop-up__text-img.css);
 @import url(../blocks/pop-up/__img/pop-up__img.css);
 @import url(../blocks/pop-up/_photo-preview/pop-up_photo-preview.css);
-
+@import url(../blocks/pop-up/__input-error/pop-up__input-error.css);
+@import url(../blocks/pop-up/__input-error/_active/pop-up__input-error_active.css);
+@import url(../blocks/pop-up/__label/pop-up__label.css);
+@import url(../blocks/pop-up/__fieldset/pop-up__fieldset.css);
+@import url(../blocks/pop-up/__input-text/_error/pop-up__input-text_error.css);
 
