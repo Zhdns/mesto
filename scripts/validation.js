@@ -1,27 +1,26 @@
-
-//form profile
-const formProfile = document.forms.profile;
-const formProfileInput = formProfile.querySelector('.pop-up__input-text')
-
-//form card
-const formCard = document.forms.card;
-const formCardInput = formCard.querySelector('.pop-up__input-text')
+const formObj = {
+    form: '.pop-up__form-input',
+    formInput: '.pop-up__input-text',
+    inputError: 'pop-up__input-text_error',
+    inputTextError: 'pop-up__input-error_active',
+    buttonElement: '.pop-up__input-button'
+}
 
 
 
 //validation
 const showInputError = (formElement, inputElement, errorMessege) => {
     const errorElement= formElement.querySelector(`#${inputElement.id}-error`)
-    inputElement.classList.add('pop-up__input-text_error')
+    inputElement.classList.add(formObj.inputError)
     errorElement.textContent = errorMessege
-    errorElement.classList.add('pop-up__input-error_active')
+    errorElement.classList.add(formObj.inputTextError)
 }
 
 const hideInputError = (formElement, inputElement) => {
     const errorElement= formElement.querySelector(`#${inputElement.id}-error`)
-    inputElement.classList.remove('pop-up__input-text_error')
+    inputElement.classList.remove(formObj.inputError)
     errorElement.textContent = " "
-    errorElement.classList.remove('pop-up__input-error_active')
+    errorElement.classList.remove(formObj.inputTextError)
 }
 
 
@@ -49,8 +48,8 @@ const  hasInvalidInput = (inputList) => {
 
 
 const setEventListeners = (formElement) => {
-    const inputList = Array.from(formElement.querySelectorAll('.pop-up__input-text'));
-    const buttonElement = formElement.querySelector('.pop-up__input-button'); 
+    const inputList = Array.from(formElement.querySelectorAll(formObj.formInput));
+    const buttonElement = formElement.querySelector(formObj.buttonElement); 
     
     toggleButtonState(inputList, buttonElement);
     inputList.forEach((inputElement) => {
@@ -62,17 +61,14 @@ const setEventListeners = (formElement) => {
 }; 
 
 const enableValidation = () => {
-    const formList = Array.from(document.querySelectorAll('.pop-up__form-input'));
+    const formList = Array.from(document.querySelectorAll(formObj.form));
     formList.forEach((formElement) => {
-    formElement.addEventListener('submit', function (evt) {
-        evt.preventDefault();
-    });
-    const fieldsetList = Array.from(formElement.querySelectorAll('.pop-up__fieldset'));
+    formElement.addEventListener('submit', (e) => {
+    })
+    setEventListeners(formElement)
+})
+}
 
-    fieldsetList.forEach((fieldSet) => {
-    setEventListeners(fieldSet);
-});
-    });
-};
 
 enableValidation();
+
