@@ -72,13 +72,17 @@ function cleanInputs(form) {
     })
     inputs.forEach((input) =>{
         input.classList.remove(formObj.inputError)
-        console.log('deleted')
     })
 }
 
 function activateButton() {
     const button = document.querySelector('.pop-up__input-button')
     button.removeAttribute('disabled');
+}
+
+function blockButton() {
+    const button = document.querySelector('#subbmit-card')
+    button.setAttribute('disabled', true);
 }
 
 //Open form
@@ -100,6 +104,7 @@ function openCardForm() {
     cardNameInput.value = ""
     cardLinkInput.value = ""
     cleanInputs(formCard)
+    blockButton()
     openPopUp(cardPopUp)
 }
 
@@ -108,7 +113,7 @@ function openCardForm() {
 function closePopUp(form) {
     form.classList.remove('pop-up_open');
     document.removeEventListener('keydown', closeByEscape) 
-    form.removeEventListener('click', closeOnOverlay)   
+    form.removeEventListener('click', closeOnOverlay)  
 }
 
 //esc
@@ -142,7 +147,6 @@ function addNewCard(e) {
             name: cardNameInput.value,
             link: cardLinkInput.value,
         }
-
     cardsContainer.prepend(addCard(newCard))
     closePopUp(cardPopUp)
 }
