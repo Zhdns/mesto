@@ -70,7 +70,7 @@ function cleanInputs(form) {
         element.textContent = ""
         element.classList.remove(formObj.inputTextError)
     })
-    inputs.forEach((input) =>{
+    inputs.forEach((input) => {
         input.classList.remove(formObj.inputError)
     })
 }
