@@ -93,7 +93,7 @@ class Card {
                 link: Card.CardLinkInput.value,
         }
         container.prepend(this._getElement(this.newCard))
-        this.handeleClose(Card.CardPopUp)
+        this.handleClose(Card.CardPopUp)
     }
     _like() {
         this._buttonLike = this.card.querySelector('.elements__information-button');
@@ -168,7 +168,7 @@ class Profile {
         Profile.ProfilePofession.textContent = Profile.FormProfession.value;
         this._handleClose()
     }
-    _action() {
+    action() {
         Profile.ProfileEditButton.addEventListener('click', () => this._handleOpen());
         Profile.ProfileCloseButton.addEventListener('click',  () => this._handleClose()); 
         Profile.FormProfile.addEventListener('submit', this._sendForm); 
@@ -176,9 +176,62 @@ class Profile {
 }
 
 const profile = new Profile();
-profile._action()
+profile.action()
 
 
+class Valid {
 
 
+    constructor(config, form) {
+        this.formElement = config.form
+        this.imputElemnt = config.inputElement
+        this.inputError = config.inputError
+        this.inputTextError = config.inputTextError
+        this.button = config.buttonElement
+        this.form = form
+    }
+    target(evt) {
+        const input = evt.target
+        this.show(input)
+        this.hide(input)
+        this.checkInputValidity(input)
+        
+    }
+    input() {
+        this.form.addEventListener('input', (evt) => this.target(evt))
+        
+    }
+    show(input) {
+        const errorElement= this.form.querySelector(`#${input.id}-error`)
+        console.log(errorElement)
+        input.classList.add(this.inputError)
+        errorElement.textContent = input.validationMessage
+        errorElement.classList.add(this.inputTextError)
+    }
+    hide(input) {
+        input.classList.remove(this.inputError)
+        input .nextElementSibling.textContent = " "
+        input.nextElementSibling.classList.remove(this.inputTextError)
+    }
+    checkInputValidity(input)  {
+        if (input.checkValidity() === true) {
+        this.show(input);
+        } else {
+        this.hide(input);
+        }
+    };
+}
+
+const formObj = {
+    formElement: '.pop-up__form-input',
+    inputElement: '.pop-up__input-text',
+    inputError: 'pop-up__input-text_error',
+    inputTextError: 'pop-up__input-error_active',
+    buttonElement: '.pop-up__input-button'
+}
+
+
+const form = document.querySelector('.pop-up__form-input')
+const val = new Valid(formObj, form)
+val.input()
 
