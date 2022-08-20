@@ -187,39 +187,51 @@ class Valid {
         this.imputElemnt = config.inputElement
         this.inputError = config.inputError
         this.inputTextError = config.inputTextError
-        this.button = config.buttonElement
+        this.button = form.querySelector('.pop-up__input-button')
         this.form = form
     }
     target(evt) {
         const input = evt.target
-        this.show(input)
-        this.hide(input)
         this.checkInputValidity(input)
+        
         
     }
     input() {
         this.form.addEventListener('input', (evt) => this.target(evt))
-        
     }
     show(input) {
-        const errorElement= this.form.querySelector(`#${input.id}-error`)
+        const errorElement = input.nextElementSibling
         console.log(errorElement)
         input.classList.add(this.inputError)
         errorElement.textContent = input.validationMessage
         errorElement.classList.add(this.inputTextError)
+        this.button.setAttribute('disabled', true);
     }
     hide(input) {
         input.classList.remove(this.inputError)
         input .nextElementSibling.textContent = " "
         input.nextElementSibling.classList.remove(this.inputTextError)
+        this.button.removeAttribute('disabled')
     }
     checkInputValidity(input)  {
-        if (input.checkValidity() === true) {
+        if (!input.validity.valid) {
         this.show(input);
         } else {
         this.hide(input);
         }
     };
+    activateButton(input) {
+        if (this.hasInvalidInput(input)) {
+            this.button.setAttribute('disabled', true);
+        } else {
+            this.button.removeAttribute('disabled');
+        }
+    }
+    hasInvalidInput(input) {
+        return input.some((inputElement) => {
+            return !inputElement.validity.valid;
+        })
+    }
 }
 
 const formObj = {
@@ -229,6 +241,7 @@ const formObj = {
     inputTextError: 'pop-up__input-error_active',
     buttonElement: '.pop-up__input-button'
 }
+
 
 
 const form = document.querySelector('.pop-up__form-input')
