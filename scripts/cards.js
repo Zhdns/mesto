@@ -24,3 +24,12 @@ const cardsPreset = [
         link: './images/places/valencia.jpg',
     },
 ];
+
+
+const formObj = {
+    formElement: '.pop-up__form-input',
+    inputElement: '.pop-up__input-text',
+    inputError: 'pop-up__input-text_error',
+    inputTextError: 'pop-up__input-error_active',
+    buttonElement: '.pop-up__input-button'
+}
