@@ -1,8 +1,7 @@
-import Profile from "./Profile";
-import Card from "./Card";
-import { profile, card, preview, user, formObj } from "./constants";
-import Validation from "./validation";
-
+import Profile from "./Profile.js";
+import Validation from "./Validation.js";
+import Card from "./Card.js"
+import {profile, card, preview, user, formObj} from "./constants.js"
 
 const profileRender = new Profile(user, profile);
 profileRender.render(profile.container)
