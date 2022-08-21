@@ -1,4 +1,4 @@
-class Utils{
+export default class Utils{
     constructor(form, config, popup) {
         this.form = form 
         this.config = config
@@ -40,11 +40,5 @@ class Utils{
         inputsElement.forEach((input) => {
             input.classList.remove(this.config.inputError)
         })
-    }
-    blockSubmit() {
-        this.button.setAttribute('disabled', true);
-    }
-    activateSubmit() {
-        this.button.removeAttribute('disabled');
     }
 }

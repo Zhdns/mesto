@@ -1,11 +1,15 @@
+import Profile from "./Profile";
+import Card from "./Card";
+import { profile, card, preview, user, formObj } from "./constants";
 
-const profile = new Profile();
-profile.action()
 
+const profileRender = new Profile(user, profile);
+profileRender.render(profile.container)
+profileRender.action()
 
-const card = new Card()
-card.render(cardsPreset, grid)
-card.renderNewCard(grid)
+const cardRender = new Card(card, preview)
+cardRender.render(user, card.container)
+cardRender.renderNewCard(card.container)
 
 const form = document.querySelectorAll('.pop-up__form-input')
 form.forEach((element) => {

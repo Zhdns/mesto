@@ -26,3 +26,12 @@
         justify-content: center;
     }
 }
+
+.profile_template {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}

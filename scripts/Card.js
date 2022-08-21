@@ -1,85 +1,79 @@
+import Utils from "./Utils"
+import Validation from "./validation"
 
-class Card {   
+export default class Card {
+    
+        static CardAddButton = document.querySelector('.profile__add-button')
 
-    static Template = document.querySelector('#card-template').content;
-    static PopUpPreview = document.querySelector('#popUpImg');
-    static PreviewPhoto = document.querySelector('.pop-up__img');
-    static PreviewText = document.querySelector('.pop-up__text-img')
-    static PreviewCloseButton = document.querySelector('#previewCloseButton')
-    static NewCardButton = document.querySelector('.profile__add-button');
-    static CardCloseButton = document.querySelector('#close-card-form');
-    static CardNameInput = document.querySelector('#cardNameInput');
-    static CardLinkInput = document.querySelector('#cardLinkInput');
-    static CardPopUp = document.querySelector('#pop-up-card-form');
-    static FormCard = document.forms.card;
-
-    constructor() {  
+    constructor(card, preview) { 
+        this.card = card 
+        this.preview = preview
     }
     _preview() {
         this.photo.addEventListener('click', () => {
-            new Utils(Card.FormCard, formObj, Card.PopUpPreview).handleOpen()
-            Card.PreviewPhoto.src = this.img
-            Card.PreviewPhoto.alt = this.text
-            Card.PreviewText.textContent = this.text
+            new Utils(this.card.form, formObj, this.preview.popUp).handleOpen()
+            this.preview.photoInput.src = this.img
+            this.preview.photoInput.alt = this.text
+            this.preview.nameInput.textContent = this.text
         })
-        Card.PreviewCloseButton.addEventListener('click', () =>{
-            new Utils(Card.FormCard, formObj, Card.PopUpPreview).handleClose()
+        this.preview.buttonClose.addEventListener('click', () =>{
+            new Utils(this.card.form, formObj, this.preview.popUp).handleClose()
         })
     }
     _add() {
-        Card.NewCardButton.addEventListener('click', () =>{
-            Card.CardNameInput.value = ""
-            Card.CardLinkInput.value = ""
-            new Utils(Card.FormCard, formObj, Card.CardPopUp).handleOpen()
-            new Utils(Card.FormCard, formObj, Card.CardPopUp).blockSubmit()
-            new Utils(Card.FormCard, formObj, Card.CardPopUp).cleanInputs()
+        Card.CardAddButton.addEventListener('click', () =>{
+            this.card.nameInput.value = ""
+            this.card.linkInput.value = ""
+            new Validation(formObj, this.card.form).checkFormValidity()
+            new Utils(this.card.form, formObj, this.card.popUp).cleanInputs()
+            new Utils(this.card.form, formObj, this.card.popUp).handleOpen()
         })
-        Card.CardCloseButton.addEventListener('click', () =>{
-            new Utils(Card.FormCard, formObj, Card.CardPopUp).handleClose()
+        this.card.buttonClose.addEventListener('click', () =>{
+            new Utils(this.card.form, formObj, this.card.popUp).handleClose()
         })
     }
     _addCard(container)  {
         this.newCard = {
-                name: Card.CardNameInput.value,
-                link: Card.CardLinkInput.value,
+                name: cardNameInput.value,
+                link: cardLinkInput.value,
         }
         container.prepend(this._getElement(this.newCard))
-        new Utils(Card.FormCard, formObj, Card.CardPopUp).handleClose()
+        new Utils(this.card.form, formObj, this.card.popUp).handleClose()
     }
     _like() {
-        this._buttonLike = this.card.querySelector('.elements__information-button');
+        this._buttonLike = this.element.querySelector('.elements__information-button');
         this._buttonLike.addEventListener('click', (e) => {
             e.target.classList.toggle('elements__information-button_active')
         })
     }
     _delete() {
-        this._buttonDelete = this.card.querySelector('.elements__delete-button');
+        this._buttonDelete = this.element.querySelector('.elements__delete-button');
         this._buttonDelete.addEventListener('click', (e) =>{
             e.target.closest('.elements__card').remove() 
         })
     }   
     _getElement(data) {
-        this.card = Card.Template.querySelector('.elements__card').cloneNode(true);
-        this.photo = this.card.querySelector('.elements__photo');
+        this.element = this.card.template.querySelector('.elements__card').cloneNode(true);
+        this.photo = this.element.querySelector('.elements__photo');
         this.img = data.link;
         this.text = data.name;
         this.photo.src = this.img;
-        this.card.querySelector('.elements__information-name').alt = this.text;
-        this.card.querySelector('.elements__information-name').textContent = this.text;
+        this.element.querySelector('.elements__information-name').alt = this.text;
+        this.element.querySelector('.elements__information-name').textContent = this.text;
         this._like();
         this._delete();
         this._preview();
         this._add()
 
-        return this.card
+        return this.element
     }
     render(array, container) {
-        array.forEach((item) => {
+        array.photo.forEach((item) => {
         container.prepend(this._getElement(item))
         })
     }
     renderNewCard(container) {
-        Card.FormCard.addEventListener('submit', (e) => {
+        this.card.form.addEventListener('submit', (e) => {
             e.preventDefault()
             this._addCard(container)
         })

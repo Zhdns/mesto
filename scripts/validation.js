@@ -1,4 +1,4 @@
-class Validation {
+export default class Validation {
     constructor(config, form) {
         this.config = config
         this.button = form.querySelector(this.config.buttonElement)
@@ -7,7 +7,7 @@ class Validation {
     _target(evt) {
         const input = evt.target
         this._checkInputValidity(input) 
-        this._checkFormValidity()
+        this.checkFormValidity()
     }
     
     _checkInputValidity(input)  {
@@ -21,7 +21,7 @@ class Validation {
             input.nextElementSibling.classList.remove(this.config.inputTextError)
         }
     };
-    _checkFormValidity() {
+    checkFormValidity() {
         const valid = this.form.checkValidity()
         if(valid) {
             this.button.removeAttribute('disabled')

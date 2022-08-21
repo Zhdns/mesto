@@ -1,36 +1,50 @@
-class Profile {
-    static ProfileEditButton = document.querySelector('.profile__info-button');
-    static ProfileCloseButton = document.querySelector('#close-name-form');
-    static ProfileName = document.querySelector('.profile__info-name');
-    static ProfilePofession = document.querySelector('.profile__info-profession');
-    static FormName = document.querySelector('#pop-up__name-input');
-    static FormProfession = document.querySelector('#pop-up__profession-input');
-    static FormProfile = document.forms.profile;
-    static ProfilePopUp = document.querySelector('#pop-up-profile-form');
+import Utils from "./Utils";
+import Validation from "./validation";
 
-    constructor() {
+export default class Profile {
+    constructor(user, constants) {
+        this.user = user
+        this.constants = constants
     }
     _handleOpen() {
-        Profile.FormName.value = Profile.ProfileName.textContent;
-        Profile.FormProfession.value = Profile.ProfilePofession.textContent;
-        new Utils(Profile.FormProfile, formObj, Profile.ProfilePopUp).handleOpen()
-        new Utils(Profile.FormProfile, formObj, Profile.ProfilePopUp).cleanInputs()
-        new Utils(Profile.FormProfile, formObj, Profile.ProfilePopUp).activateSubmit()
+        this.constants.nameInput.value = this.name.textContent;
+        this.constants.professionInput.value = this.profession.textContent;
+        new Validation(formObj, this.constants.form).checkFormValidity()
+        new Utils(this.constants.form, formObj, this.constants.popUp).handleOpen()
+        new Utils(this.constants.form, formObj, this.constants.popUp).cleanInputs()
     }
     _handleClose() {
-        new Utils(Profile.FormProfile, formObj, Profile.ProfilePopUp).handleClose()
+        new Utils(this.constants.form, formObj, this.constants.popUp).handleClose()
     }
     _sendForm = (evt) => {
         evt.preventDefault();
-        Profile.ProfileName.textContent = Profile.FormName.value;
-        Profile.ProfilePofession.textContent = Profile.FormProfession.value;
+        this.name.textContent = this.constants.nameInput.value;
+        this.profession.textContent = this.constants.professionInput.value;
         this._handleClose()
     }
-    action() {
-        Profile.ProfileEditButton.addEventListener('click', () => this._handleOpen());
-        Profile.ProfileCloseButton.addEventListener('click',  () => this._handleClose()); 
-        Profile.FormProfile.addEventListener('submit', this._sendForm); 
+    getElement() {
+        this.profile = this.constants.template.querySelector('.profile__account').cloneNode(true)
+        this.editButton = this.profile.querySelector('.profile__info-button')
+        this.button =  this.profile.querySelector('.profile__add-button')
+        this.avatar = this.profile.querySelector('.profile__avatar')
+        this.name = this.profile.querySelector('.profile__info-name')
+        this.profession = this.profile.querySelector('.profile__info-profession')
+        this.avatar.src = this.user.avatar
+        this.name.textContent = this.user.name
+        this.profession.textContent = this.user.profession
+        this.edit()
         
+        return this.profile
+    }
+    render(container) {
+        container.prepend(this.getElement())
+    }
+    edit() {
+        this.editButton.addEventListener('click', () => this._handleOpen());
+    }
+    action() {
+        this.constants.buttonClose.addEventListener('click',  () => this._handleClose()); 
+        this.constants.form.addEventListener('submit', this._sendForm);   
     }
 }
 

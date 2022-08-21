@@ -7,33 +7,27 @@
     <title>Mesto</title>
 </head>
 <body class="root">
-    <!--Header-->
     <header class="header">
         <img src="./images/logo/logo-white.svg" alt="лого" class="header__logo">
     </header>
     <main class="main">
-        <!--Profile-->
         <section class="profile">
-            <div class="profile__account">
-                <img class="profile__avatar" src="./images/avatar/avatar.jpg" alt="аватарка">
-                <div class="profile__info">
-                    <h1 class="profile__info-name">Денис Жалгосбай</h1>
-                    <button class="profile__info-button link-hover" type="button"></button>
-                    <h2 class="profile__info-profession">Кинооператор</h2>
-                </div>
-            </div> 
+
+            <!--Profile place-->
             <button class="profile__add-button link-hover" type="button"></button>
         </section>
-        <!--Elements-->
         <section class="elements">
+
             <!--Card's place-->
-        </section>
+
+        </section> 
     </main>
-        <!--Footer-->
     <footer class="footer">
         <p class="footer__text">&copy; 2022 Mesto Russia</p>
     </footer>
-        <!--Pop-Up-->
+
+    <!--end of the page-->
+
     <div class="pop-up" id="pop-up-profile-form">
             <div class="pop-up__container">
                 <button class="pop-up__close-button link-hover" type="button" id="close-name-form"></button>
@@ -89,11 +83,17 @@
         </div>
     </div> 
 </template>
-    <script src="./scripts/cards.js"></script>
-    <script src="./scripts/Utils.js"></script>
-    <script src="./scripts/Card.js"></script>
-    <script src="./scripts/Profile.js"></script>
-    <script src="./scripts/Validation.js"></script>
-    <script src="./scripts/index.js"></script>
+<template id="profile-template">
+        <div class="profile__account">
+            <img class="profile__avatar" src="./images/avatar/avatar.jpg" alt="аватарка">
+            <div class="profile__info">
+                <h1 class="profile__info-name">Денис Жалгосбай</h1>
+                <button class="profile__info-button link-hover" type="button"></button>
+                <h2 class="profile__info-profession">Кинооператор</h2>
+            </div>
+        </div> 
+        <button class="profile__add-button link-hover" type="button"></button>
+</template>
+    <script type="module" src="./scripts/index.js"></script>
 </body>
 </html>
