@@ -1,6 +1,7 @@
 import Profile from "./Profile";
 import Card from "./Card";
 import { profile, card, preview, user, formObj } from "./constants";
+import Validation from "./validation";
 
 
 const profileRender = new Profile(user, profile);
