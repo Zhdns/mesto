@@ -33,3 +33,5 @@ const formObj = {
     inputTextError: 'pop-up__input-error_active',
     buttonElement: '.pop-up__input-button'
 }
+
+const grid = document.querySelector('.elements')

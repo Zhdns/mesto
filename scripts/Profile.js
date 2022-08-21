@@ -1,5 +1,4 @@
 class Profile {
-
     static ProfileEditButton = document.querySelector('.profile__info-button');
     static ProfileCloseButton = document.querySelector('#close-name-form');
     static ProfileName = document.querySelector('.profile__info-name');
@@ -8,17 +7,18 @@ class Profile {
     static FormProfession = document.querySelector('#pop-up__profession-input');
     static FormProfile = document.forms.profile;
     static ProfilePopUp = document.querySelector('#pop-up-profile-form');
-    static formProfile = document.forms.profile;
 
     constructor() {
     }
     _handleOpen() {
         Profile.FormName.value = Profile.ProfileName.textContent;
         Profile.FormProfession.value = Profile.ProfilePofession.textContent;
-        new Card().handleOpen(Profile.ProfilePopUp)
+        new Utils(Profile.FormProfile, formObj, Profile.ProfilePopUp).handleOpen()
+        new Utils(Profile.FormProfile, formObj, Profile.ProfilePopUp).cleanInputs()
+        new Utils(Profile.FormProfile, formObj, Profile.ProfilePopUp).activateSubmit()
     }
     _handleClose() {
-        new Card().handleClose(Profile.ProfilePopUp)
+        new Utils(Profile.FormProfile, formObj, Profile.ProfilePopUp).handleClose()
     }
     _sendForm = (evt) => {
         evt.preventDefault();
