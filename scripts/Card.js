@@ -12,24 +12,25 @@ export default class Card {
     }
     _preview() {
         this.photo.addEventListener('click', () => {
-            new Utils(this.card.form, formObj, this.preview.popUp).handleOpen()
             this.preview.photoInput.src = this.img
             this.preview.photoInput.alt = this.text
+            console.log(this.img)
             this.preview.nameInput.textContent = this.text
+            new Utils(this.card.form, formObj, this.preview.popUp).handleOpen()
         })
         this.preview.buttonClose.addEventListener('click', () =>{
             new Utils(this.card.form, formObj, this.preview.popUp).handleClose()
         })
     }
     _add() {
-        Card.CardAddButton.addEventListener('click', () =>{
+        Card.CardAddButton.addEventListener('click', () => {
             this.card.nameInput.value = ""
             this.card.linkInput.value = ""
             new Validation(formObj, this.card.form).checkFormValidity()
             new Utils(this.card.form, formObj, this.card.popUp).cleanInputs()
             new Utils(this.card.form, formObj, this.card.popUp).handleOpen()
         })
-        this.card.buttonClose.addEventListener('click', () =>{
+        this.card.buttonClose.addEventListener('click', () => {
             new Utils(this.card.form, formObj, this.card.popUp).handleClose()
         })
     }
@@ -63,8 +64,8 @@ export default class Card {
         this.element.querySelector('.elements__information-name').textContent = this.text;
         this._like();
         this._delete();
-        this._preview();
-        this._add()
+        this._add();
+        this._preview()
 
         return this.element
     }
