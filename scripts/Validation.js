@@ -3,6 +3,8 @@ export default class Validation {
         this.config = config
         this.button = form.querySelector(this.config.buttonElement)
         this.form = form
+        
+        
     }
     _target(evt) {
         const input = evt.target
@@ -20,7 +22,20 @@ export default class Validation {
             input .nextElementSibling.textContent = " "
             input.nextElementSibling.classList.remove(this.config.inputTextError)
         }
-    };
+    }
+    cleanInputs() {
+        const inputs = this.form.querySelectorAll(this.config.inputElement)
+        const errors = this.form.querySelectorAll(this.config.inputError)
+
+
+        errors.forEach((error) => {
+            error.textContent = ""
+            error.classList.remove('.pop-up__input-error_active')
+        })
+        inputs.forEach((input) => {
+            input.classList.remove(this.config.inputTextError)
+        })    
+    }
     checkFormValidity() {
         const valid = this.form.checkValidity()
         if(valid) {
@@ -34,8 +49,4 @@ export default class Validation {
         this.form.addEventListener('input', (evt) => this._target(evt))
     }
 }
-
-
-
-
 

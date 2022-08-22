@@ -33,7 +33,7 @@ const previewCloseButton = document.querySelector('#previewCloseButton')
     const formObj = {
     formElement: '.pop-up__form-input',
     inputElement: '.pop-up__input-text',
-    inputError: 'pop-up__input-text_error',
+    inputError: '.pop-up__input-error',
     inputTextError: 'pop-up__input-error_active',
     buttonElement: '.pop-up__input-button'
     }
@@ -89,18 +89,26 @@ const previewCloseButton = document.querySelector('#previewCloseButton')
 
 
 //validation
-const form = document.querySelectorAll('.pop-up__form-input')
-form.forEach((element) => {
-    new Validation(formObj, element).enableValidation()
+function validation(form) {
+    const validation = new Validation(formObj, form)
+    return validation
+}
+
+const forms = document.querySelectorAll('.pop-up__form-input')
+forms.forEach((element) => {
+    validation(element).enableValidation()
 })
 
 
 //card function
-//const cardRender = new Card(card, preview, item)
+function createCard(item) {
+    const cardElement = new Card(card, preview, item).getElement()
+    return cardElement
+}
 
 //preinstalled cards 
 user.photo.forEach((item) => {
-    card.container.prepend(new Card(card, preview, item).getElement())
+    card.container.prepend(createCard(item))
     })
 
     function addNewCard(e) {
@@ -109,7 +117,7 @@ user.photo.forEach((item) => {
                 name: cardNameInput.value,
                 link: cardLinkInput.value,
             }
-            card.container.prepend(new Card(card, preview, newCard).getElement())
+            card.container.prepend(createCard(newCard))
         closePopUp(cardPopUp)
     }
 
@@ -122,28 +130,6 @@ user.photo.forEach((item) => {
     
     
 
-function cleanInputs(form) {
-    const errorElement = Array.from(form.querySelectorAll(`.pop-up__input-error`))
-    const inputs = Array.from(form.querySelectorAll('.pop-up__input-text'))
-    errorElement.forEach((element) => {
-        element.textContent = ""
-        element.classList.remove(formObj.inputTextError)
-    })
-    inputs.forEach((input) => {
-        input.classList.remove(formObj.inputError)
-    })
-}
-
-function activateButton() {
-    const button = document.querySelector('.pop-up__input-button')
-    button.removeAttribute('disabled');
-}
-
-function blockButton() {
-    const button = document.querySelector('#subbmit-card')
-    button.setAttribute('disabled', true);
-}
-
 //Open form
 export function openPopUp(form){
     form.classList.add('pop-up_open');
@@ -154,16 +140,15 @@ export function openPopUp(form){
 function openNameForm() {
     formName.value = profileName.textContent;
     formProfession.value = profilePofession.textContent;
-    cleanInputs(formProfile)
-    activateButton()
+    validation(formProfile).cleanInputs()
+    validation(formProfile).checkFormValidity()
     openPopUp(profilePopUp)
 }
 
 function openCardForm() {
     cardNameInput.value = ""
     cardLinkInput.value = ""
-    cleanInputs(formCard)
-    blockButton()
+    validation(formCard).checkFormValidity()
     openPopUp(cardPopUp)
 }
 
@@ -204,14 +189,20 @@ function sendForm(e) {
 
 //edit form
 profileEditButton.addEventListener('click', openNameForm);
-profileCloseButton.addEventListener('click',  () => closePopUp(profilePopUp)); 
+//profileCloseButton.addEventListener('click',  () => closePopUp(profilePopUp)); 
 formProfile.addEventListener('submit', sendForm);
 
 //card form
 newCardButton.addEventListener('click', openCardForm);
-cardCloseButton.addEventListener('click', () => closePopUp(cardPopUp));
-previewCloseButton.addEventListener('click', () => closePopUp(photoPopUp));
+//cardCloseButton.addEventListener('click', () => closePopUp(cardPopUp));
+//previewCloseButton.addEventListener('click', () => closePopUp(photoPopUp));
 formCard.addEventListener('submit', addNewCard);
 
 
 
+const closeButtons = document.querySelectorAll('.pop-up__close-button');
+
+closeButtons.forEach((button) => { 
+    const popup = button.closest('.pop-up');
+    button.addEventListener('click', () => closePopUp(popup));
+});

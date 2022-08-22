@@ -14,9 +14,6 @@ export default class Card {
             this.previewPopUp = previewOpen
             this.previewPopUp(this.text, this.img)
         })
-        this.preview.buttonClose.addEventListener('click', () =>{
-            new Utils(this.card.form, formObj, this.preview.popUp).handleClose()
-        })
     }
     _like() {
         this._buttonLike = this.element.querySelector('.elements__information-button');
