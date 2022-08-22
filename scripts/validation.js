@@ -30,7 +30,7 @@ export default class Validation {
             this.button.setAttribute('disabled', true);
         }
     }
-    render() {
+    enableValidation() {
         this.form.addEventListener('input', (evt) => this._target(evt))
     }
 }
