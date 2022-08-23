@@ -92,10 +92,8 @@ const previewCloseButton = document.querySelector('#previewCloseButton')
     const validationCard = new Validation(formObj, formCard)
     const validationProfile = new Validation(formObj, formProfile)
 
-const forms = document.querySelectorAll('.pop-up__form-input')
-forms.forEach((element) => {
-    new Validation(formObj, element).enableValidation()
-})
+    validationCard.enableValidation()  
+    validationProfile.enableValidation()  
 
 
 //card function

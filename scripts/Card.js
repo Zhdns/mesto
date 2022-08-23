@@ -36,7 +36,6 @@ export default class Card {
         this._delete();
         this._preview()
         
-
         return this.element
     }
 }
