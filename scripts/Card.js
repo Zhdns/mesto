@@ -30,7 +30,7 @@ export default class Card {
     getElement() {
         this.photo = this.element.querySelector('.elements__photo');
         this.photo.src = this.img;
-        this.element.querySelector('.elements__information-name').alt = this.text;
+        this.photo.alt = this.text;
         this.element.querySelector('.elements__information-name').textContent = this.text;
         this._like();
         this._delete();

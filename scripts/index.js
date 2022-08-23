@@ -89,14 +89,12 @@ const previewCloseButton = document.querySelector('#previewCloseButton')
 
 
 //validation
-function validation(form) {
-    const validation = new Validation(formObj, form)
-    return validation
-}
+    const validationCard = new Validation(formObj, formCard)
+    const validationProfile = new Validation(formObj, formProfile)
 
 const forms = document.querySelectorAll('.pop-up__form-input')
 forms.forEach((element) => {
-    validation(element).enableValidation()
+    new Validation(formObj, element).enableValidation()
 })
 
 
@@ -140,15 +138,16 @@ export function openPopUp(form){
 function openNameForm() {
     formName.value = profileName.textContent;
     formProfession.value = profilePofession.textContent;
-    validation(formProfile).cleanInputs()
-    validation(formProfile).checkFormValidity()
+    validationProfile.cleanInputs()
+    validationProfile.checkFormValidity()
     openPopUp(profilePopUp)
 }
 
 function openCardForm() {
     cardNameInput.value = ""
     cardLinkInput.value = ""
-    validation(formCard).checkFormValidity()
+    validationCard.cleanInputs()
+    validationCard.checkFormValidity()
     openPopUp(cardPopUp)
 }
 
@@ -188,20 +187,16 @@ function sendForm(e) {
 
 
 //edit form
-profileEditButton.addEventListener('click', openNameForm);
-//profileCloseButton.addEventListener('click',  () => closePopUp(profilePopUp)); 
+profileEditButton.addEventListener('click', openNameForm); 
 formProfile.addEventListener('submit', sendForm);
 
 //card form
 newCardButton.addEventListener('click', openCardForm);
-//cardCloseButton.addEventListener('click', () => closePopUp(cardPopUp));
-//previewCloseButton.addEventListener('click', () => closePopUp(photoPopUp));
 formCard.addEventListener('submit', addNewCard);
 
 
 
 const closeButtons = document.querySelectorAll('.pop-up__close-button');
-
 closeButtons.forEach((button) => { 
     const popup = button.closest('.pop-up');
     button.addEventListener('click', () => closePopUp(popup));

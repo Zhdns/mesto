@@ -3,7 +3,8 @@ export default class Validation {
         this.config = config
         this.button = form.querySelector(this.config.buttonElement)
         this.form = form
-        
+        this.inputs = this.form.querySelectorAll(this.config.inputElement)
+        this.errors = this.form.querySelectorAll(this.config.inputError)
         
     }
     _target(evt) {
@@ -24,15 +25,11 @@ export default class Validation {
         }
     }
     cleanInputs() {
-        const inputs = this.form.querySelectorAll(this.config.inputElement)
-        const errors = this.form.querySelectorAll(this.config.inputError)
-
-
-        errors.forEach((error) => {
+        this.errors.forEach((error) => {
             error.textContent = ""
             error.classList.remove('.pop-up__input-error_active')
         })
-        inputs.forEach((input) => {
+        this.inputs.forEach((input) => {
             input.classList.remove(this.config.inputTextError)
         })    
     }
