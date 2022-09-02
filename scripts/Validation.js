@@ -3,9 +3,6 @@ export default class Validation {
         this.config = config
         this.button = form.querySelector(this.config.buttonElement)
         this.form = form
-        this.inputs = this.form.querySelectorAll(this.config.inputElement)
-        this.errors = this.form.querySelectorAll(this.config.inputError)
-        
     }
     _target(evt) {
         const input = evt.target
@@ -23,16 +20,7 @@ export default class Validation {
             input .nextElementSibling.textContent = " "
             input.nextElementSibling.classList.remove(this.config.inputTextError)
         }
-    }
-    cleanInputs() {
-        this.errors.forEach((error) => {
-            error.textContent = ""
-            error.classList.remove('.pop-up__input-error_active')
-        })
-        this.inputs.forEach((input) => {
-            input.classList.remove(this.config.inputTextError)
-        })    
-    }
+    };
     checkFormValidity() {
         const valid = this.form.checkValidity()
         if(valid) {
@@ -42,8 +30,12 @@ export default class Validation {
             this.button.setAttribute('disabled', true);
         }
     }
-    enableValidation() {
+    render() {
         this.form.addEventListener('input', (evt) => this._target(evt))
     }
 }
+
+
+
+
 
