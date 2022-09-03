@@ -1,12 +1,10 @@
-import PopUp from "./PopUp.js"
-
 export default class Section {
     constructor ({items, render}, container) {
         this.items = items
         this.render = render
         this.container = container
     }
-    setR(element) {
+    setItems(element) {
         this.container.prepend(element)
     }
     renderItems() {
@@ -14,14 +12,10 @@ export default class Section {
             this.render(item)
         })
     }
-    renderNew(form) {
+    renderNewCard(form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault()
             this.render()      
         })
 }
-    setN(elem) {
-        this.container.prepend(elem)
-        
-    }
 }

@@ -18,6 +18,7 @@
     const cardNameInput = document.querySelector('#cardNameInput');
     const cardLinkInput = document.querySelector('#cardLinkInput');
     const cardPopUp = document.querySelector('#pop-up-card-form');
+    const cardAddButton = document.querySelector('.profile__add-button');
     const formCard = document.forms.card
     
 
@@ -69,6 +70,7 @@
         buttonClose: cardCloseButton,
         nameInput: cardNameInput,
         linkInput: cardLinkInput,
+        buttonAdd: cardAddButton,
     }
 
     export const preview = {

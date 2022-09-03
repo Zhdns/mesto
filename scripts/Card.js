@@ -1,33 +1,21 @@
 import Utils from "./Utils.js"
 import Validation from "./validation.js"
 import {formObj}  from "./constants.js";
+import PopUpPreview from "./PopUpPreview.js";
 
 export default class Card {
-    
-        static CardAddButton = document.querySelector('.profile__add-button')
-
     constructor(card, preview) { 
         this.card = card 
-        this.preview = preview
         this.element = this.card.template.querySelector('.elements__card').cloneNode(true);
         this.photo = this.element.querySelector('.elements__photo');
         this.nameInput = card.nameInput
         this.linkInput = card.linkInput
         this.container = card.container
-    }
-    _preview() {
-        this.photo.addEventListener('click', () => {
-            new Utils(this.card.form, formObj, this.preview.popUp).handleOpen()
-            this.preview.photoInput.src = this.img
-            this.preview.photoInput.alt = this.text
-            this.preview.nameInput.textContent = this.text
-        })
-        this.preview.buttonClose.addEventListener('click', () =>{
-            new Utils(this.card.form, formObj, this.preview.popUp).handleClose()
-        })
+        this.buttonAdd = card.buttonAdd
+        this.preview = preview
     }
     _add() {
-        Card.CardAddButton.addEventListener('click', () =>{
+        this.buttonAdd.addEventListener('click', () =>{
             this.card.nameInput.value = ""
             this.card.linkInput.value = ""
             new Validation(formObj, this.card.form).checkFormValidity()
@@ -43,7 +31,6 @@ export default class Card {
                 name: this.nameInput.value,
                 link: this.linkInput.value,
         }
-        
 
         return this.getElement(this.newCard)
     }
@@ -67,21 +54,11 @@ export default class Card {
         this.element.querySelector('.elements__information-name').textContent = this.text;
         this._like();
         this._delete();
-        this._preview();
+        new PopUpPreview(this.photo, this.img, this.text, this.preview).openPreview();
+        //new PopUpPreview(this.photo, this.img, this.text, this.preview).closePreview()
         this._add()
 
         return this.element
-    }
-    render(array, container) {
-        array.photo.forEach((item) => {
-        container.prepend(this.getElement(item))
-        })
-    }
-    renderNewCard() {
-        this.card.form.addEventListener('submit', (e) => {
-            e.preventDefault()
-            this._addCard()
-        })
     }
 }
 

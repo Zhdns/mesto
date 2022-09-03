@@ -19,12 +19,13 @@ form.forEach((element) => {
 })
 
 
+
 const cardList = new Section({
     items: user.photo,
     render: (item) => {
         const cards = new Card(card, preview)
-        const carEl = cards.getElement(item)
-        cardList.setR(carEl)
+        const element = cards.getElement(item)
+        cardList.setItems(element)
     }
 }, card.container)
 
@@ -34,11 +35,12 @@ const newCard = new Section({
     items: user.photo,
     render: () => {
         const cards = new Card(card, preview)
-        const carEs = cards.addCard()
-        newCard.setN(carEs)
-        new PopUp(card.popUp).handleClose()
-
+        const element = cards.addCard()
+        newCard.setItems(element)
+        new PopUp(card.popUp).close()
     }
 }, card.container)
 
-newCard.renderNew(card.form)
+
+
+newCard.renderNewCard(card.form)
