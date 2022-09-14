@@ -20,7 +20,15 @@
     const cardPopUp = document.querySelector('#pop-up-card-form');
     const cardAddButton = document.querySelector('.profile__add-button');
     const formCard = document.forms.card
-    
+
+    //photo
+    const deadSea = new URL('../images/places/deadsea.png', import.meta.url)
+    const istambul = new URL('../images/places/istambul.jpg', import.meta.url)
+    const jerusalem = new URL('../images/places/jerusalem.jpg', import.meta.url)
+    const moscow = new URL('../images/places/moscow.jpg', import.meta.url)
+    const noviVinodolski = new URL('../images/places/noviVinodolski.jpg', import.meta.url)
+    const valencia = new URL('../images/places/valencia.jpg', import.meta.url)
+    const avatar = new URL('../images/avatar/avatar.jpg', import.meta.url)    
 
     export const formObj = {
     formElement: '.pop-up__form-input',
@@ -31,33 +39,33 @@
     }
 
     export const user = {
-    avatar: "./images/avatar/avatar.jpg",
+    avatar: avatar,
     name: 'Денис Жалгосбай',
     profession: 'Кинооператор',
     photo: [
         {
             name: 'Мертвое море',
-            link: './images/places/deadsea.png', 
+            link: deadSea, 
         },
         {
             name: 'Стамбул',
-            link: './images/places/istambul.jpg',
+            link: istambul,
         },
         {
             name: 'Иерусалим',
-            link: './images/places/jerusalem.jpg',
-        },,
+            link: jerusalem,
+        },
         {
             name: 'Москва',
-            link: './images/places/moscow.jpg',
+            link: moscow,
         },
         {
             name: 'Нови Винодольски',
-            link: './images/places/noviVinodolski.jpg',
+            link: noviVinodolski,
         },
         {
             name: 'Валенсия',
-            link: './images/places/valencia.jpg',
+            link: valencia,
         },
     ],
     }

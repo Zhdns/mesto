@@ -12,15 +12,11 @@ export default class PopUpPreview {
     }
     openPreview(){
     this.element.addEventListener('click', () => {
-        console.log(this.photo)
-        this.popUp.handleOpen()
+        this.popUp.open()
         this.preview.photoInput.src = this.photo
         this.preview.photoInput.alt = this.text
         this.preview.nameInput.textContent = this.text
-        this.popUp.handleclose()
+        this.popUp.handleClose()
     })
-    }
-    closePreview() {
-        this.popUp.handleclose()
     }
 }

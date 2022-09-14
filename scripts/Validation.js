@@ -21,6 +21,17 @@ export default class Validation {
             input.nextElementSibling.classList.remove(this.config.inputTextError)
         }
     };
+    cleanInputs() {
+        const formElement = this.form.querySelectorAll(`.pop-up__input-error`)
+        const inputsElement = this.form.querySelectorAll('.pop-up__input-text')
+        formElement.forEach((element) => {
+            element.textContent = ""
+            element.classList.remove(this.config.inputTextError)
+        })
+        inputsElement.forEach((input) => {
+            input.classList.remove(this.config.inputError)
+        })
+    }
     checkFormValidity() {
         const valid = this.form.checkValidity()
         if(valid) {

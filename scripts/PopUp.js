@@ -3,12 +3,12 @@ export default class PopUp {
         this.popup = popup
         this.closeButton = closeButton
     }
-    handleOpen() {
+    open() {
         this.popup.classList.add('pop-up_open');
         document.addEventListener('keydown', this._closeByEscape)
         this.popup.addEventListener('click', this._closeOnOverlay)
     }
-    handleclose() {
+    handleClose() {
         this.closeButton.addEventListener('click', () => this.close())
     }
     close() {

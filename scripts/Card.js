@@ -1,10 +1,8 @@
-import Utils from "./Utils.js"
-import Validation from "./validation.js"
-import {formObj}  from "./constants.js";
 import PopUpPreview from "./PopUpPreview.js";
+import PopUpFormCard from "./PopUpFormCard.js";
 
 export default class Card {
-    constructor(card, preview) { 
+    constructor(card, preview, form) { 
         this.card = card 
         this.element = this.card.template.querySelector('.elements__card').cloneNode(true);
         this.photo = this.element.querySelector('.elements__photo');
@@ -12,27 +10,9 @@ export default class Card {
         this.linkInput = card.linkInput
         this.container = card.container
         this.buttonAdd = card.buttonAdd
+        this.buttonClose = card.buttonClose
         this.preview = preview
-    }
-    _add() {
-        this.buttonAdd.addEventListener('click', () =>{
-            this.card.nameInput.value = ""
-            this.card.linkInput.value = ""
-            new Validation(formObj, this.card.form).checkFormValidity()
-            new Utils(this.card.form, formObj, this.card.popUp).cleanInputs()
-            new Utils(this.card.form, formObj, this.card.popUp).handleOpen()
-        })
-        this.card.buttonClose.addEventListener('click', () =>{
-            new Utils(this.card.form, formObj, this.card.popUp).handleClose()
-        })
-    }
-    addCard()  {
-        this.newCard = {
-                name: this.nameInput.value,
-                link: this.linkInput.value,
-        }
-
-        return this.getElement(this.newCard)
+        this.form = form
     }
     _like() {
         this._buttonLike = this.element.querySelector('.elements__information-button');
@@ -55,10 +35,17 @@ export default class Card {
         this._like();
         this._delete();
         new PopUpPreview(this.photo, this.img, this.text, this.preview).openPreview();
-        //new PopUpPreview(this.photo, this.img, this.text, this.preview).closePreview()
-        this._add()
+        new PopUpFormCard(this.card, this.form).setEventLisners()
 
         return this.element
+    }
+    addCard()  {
+        this.newCard = {
+                name: this.nameInput.value,
+                link: this.linkInput.value,
+        }
+
+        return this.getElement(this.newCard)
     }
 }
 
