@@ -1,10 +1,10 @@
 import '../pages/index.css';
-import Card from "./Card.js";
-import { profile, card, preview, user, formObj } from "./constants.js";
-import Validation from "./validation.js";
-import Section from "./section.js";
-import PopUp from "./PopUp.js";
-import UserInfo from "./UserInfo.js";
+import Card from "../scripts/Card.js";
+import { profile, card, preview, user, formObj } from "../scripts/utils/constants.js";
+import Validation from "../scripts/Validation.js";
+import Section from "../scripts/Section.js";
+import PopUp from "../scripts/PopUp.js";
+import UserInfo from "../scripts/UserInfo.js";
 
 const profileRender = new UserInfo(user, profile, formObj);
 profileRender.SetUserInfo(profile.container)

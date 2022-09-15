@@ -22,13 +22,13 @@
     const formCard = document.forms.card
 
     //photo
-    const deadSea = new URL('../images/places/deadsea.png', import.meta.url)
-    const istambul = new URL('../images/places/istambul.jpg', import.meta.url)
-    const jerusalem = new URL('../images/places/jerusalem.jpg', import.meta.url)
-    const moscow = new URL('../images/places/moscow.jpg', import.meta.url)
-    const noviVinodolski = new URL('../images/places/noviVinodolski.jpg', import.meta.url)
-    const valencia = new URL('../images/places/valencia.jpg', import.meta.url)
-    const avatar = new URL('../images/avatar/avatar.jpg', import.meta.url)    
+    const deadSea = new URL('../../images/places/deadsea.png', import.meta.url)
+    const istambul = new URL('../../images/places/istambul.jpg', import.meta.url)
+    const jerusalem = new URL('../../images/places/jerusalem.jpg', import.meta.url)
+    const moscow = new URL('../../images/places/moscow.jpg', import.meta.url)
+    const noviVinodolski = new URL('../../images/places/noviVinodolski.jpg', import.meta.url)
+    const valencia = new URL('../../images/places/valencia.jpg', import.meta.url)
+    const avatar = new URL('../../images/avatar/avatar.jpg', import.meta.url)    
 
     export const formObj = {
     formElement: '.pop-up__form-input',
