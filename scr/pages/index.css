@@ -2,7 +2,7 @@
 @import url(../vendor/normalize.css);
 @import url(../blocks/root/root.css);
 @import url(../blocks/main/main.css);
-@import url(../fonts/inter.css);
+@import url(../vendor/fonts/inter.css);
 
 /*pointer and link style*/
 @import url(../blocks/link-hover/link-hover.css);

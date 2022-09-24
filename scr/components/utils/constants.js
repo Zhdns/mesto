@@ -1,11 +1,14 @@
     //profile's constants
     const profilePlace = document.querySelector('.profile')
-    const profileTemplate = document.querySelector('#profile-template').content
     const profileCloseButton = document.querySelector('#close-name-form');
     const formName = document.querySelector('#pop-up__name-input');
     const formProfession = document.querySelector('#pop-up__profession-input');
     const formProfile = document.forms.profile;
     const profilePopUp = document.querySelector('#pop-up-profile-form');
+    const profileProfession = document.querySelector('.profile__info-profession');
+    const profileName = document.querySelector('.profile__info-name')
+    const profileImage = document.querySelector('.profile__avatar')
+    const profileEditButton = document.querySelector('.profile__info-button')
 
     //card's constants
     const grid = document.querySelector('.elements') 
@@ -90,11 +93,14 @@
 
     export const profile = {
         container: profilePlace,
-        template: profileTemplate,
         form: formProfile,
         popUp: profilePopUp,
         buttonClose: profileCloseButton,
         nameInput: formName,
         professionInput: formProfession,
+        name: profileName,
+        profession: profileProfession,
+        avatar: profileImage,
+        buttonEdit: profileEditButton,
     }
 

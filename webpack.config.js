@@ -5,14 +5,14 @@ const path = require("path")
 
 
 module.exports = {
-    entry: "./pages/index.js",
+    entry: "./scr/pages/index.js",
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'main.js', 
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './index.html'
+            template: './scr/index.html'
         }),
         new MiniCssExtractPlugin(),
         new CleanWebpackPlugin()
