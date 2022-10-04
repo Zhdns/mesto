@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mesto</title>
-    <!--<link rel="stylesheet" href="./pages/index.css">-->
+    <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body class="root">
     <header class="header">
@@ -13,11 +13,11 @@
     <main class="main">
         <section class="profile">
             <div class="profile__account">
-                <img class="profile__avatar" alt="аватарка">
+                <img class="profile__avatar"  src="<%=require('./images/avatar/avatar.jpg')%>" alt="аватарка">
                 <div class="profile__info">
-                    <h1 class="profile__info-name"></h1>
+                    <h1 class="profile__info-name">Денис Жалгосбай</h1>
                     <button class="profile__info-button link-hover" type="button"></button>
-                    <h2 class="profile__info-profession"></h2>
+                    <h2 class="profile__info-profession">Кинооператор</h2>
                 </div> 
             </div>
             <button class="profile__add-button link-hover" type="button"></button>

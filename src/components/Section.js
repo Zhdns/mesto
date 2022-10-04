@@ -4,7 +4,7 @@ export default class Section {
         this.render = render
         this.container = container
     }
-    setItems(element) {
+    addItems(element) {
         this.container.prepend(element)
     }
     renderItems() {
@@ -12,10 +12,4 @@ export default class Section {
             this.render(item)
         })
     }
-    renderNewCard(form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault()
-            this.render()      
-        })
-}
 }

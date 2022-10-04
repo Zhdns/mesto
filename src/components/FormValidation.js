@@ -1,4 +1,4 @@
-export default class FormValidationValidation {
+export default class FormValidation{
     constructor(config, form) {
         this.config = config
         this.form = form
@@ -9,7 +9,7 @@ export default class FormValidationValidation {
     _setEventListeners(evt) {
         const input = evt.target
         this._checkInputValidity(input) 
-        this.checkFormValidity()
+        this._toggleButtonState()
     }
     
     _checkInputValidity(input)  {
@@ -26,7 +26,7 @@ export default class FormValidationValidation {
             this._hideError(input)
         })
     }
-    checkFormValidity() {
+    _toggleButtonState() {
         const valid = this.form.checkValidity()
         if(valid) {
             this.activateButton()

@@ -1,19 +1,14 @@
-import '../pages/index.css';
+//import '../pages/index.css';
 import Card from "../components/Card.js"
-import { profile, card, preview, user, formObj } from "../components/utils/constants.js"
+import { profile, card, preview, user, formObj } from "../utils/constants.js"
 import FormValidation from "../components/FormValidation.js"
 import Section from "../components/Section.js"
 import UserInfo from "../components/UserInfo.js"
 import PopUpForm from "../components/PopUpForm.js"
 import PopUpPreview from "../components/PopUpPreview.js"
 
-const form = document.querySelectorAll('.pop-up__form-input')
-form.forEach((element) => {
-    new FormValidation(formObj, element).enableValidation()
-})
 
-const profileRender = new UserInfo(user, profile);
-profileRender.getUserInfo()
+const profileRender = new UserInfo('.profile__info-name', '.profile__info-profession');
 
 
 const popUpUser = new PopUpForm(profile.popUp, 
@@ -28,13 +23,14 @@ const popUpUser = new PopUpForm(profile.popUp,
 popUpUser.setEventLisners()
 
 const profileValidation = new FormValidation(formObj, profile.form)
+profileValidation.enableValidation()
 
 profile.buttonEdit.addEventListener('click', () => { 
     popUpUser.open()
     profileValidation.cleanInputs()
     profileValidation.activateButton()
-    profile.nameInput.value = profile.name.textContent
-    profile.professionInput.value = profile.profession.textContent
+    profile.nameInput.value = profileRender.getUserInfo().name.textContent
+    profile.professionInput.value = profileRender.getUserInfo().profession.textContent
 
 })
 
@@ -43,7 +39,7 @@ const cardList = new Section({
     render: (item) => {
         const cards = new Card(card, item, openPreview)
         const element = cards.getElement()
-        cardList.setItems(element)
+        cardList.addItems(element)
     }
 }, card.container)
 
@@ -64,7 +60,7 @@ const popUpCard = new PopUpForm(card.popUp,
                 render: (item) => {
                     const cards = new Card(card, item, openPreview)
                     const element = cards.getElement()
-                    addCard.setItems(element)
+                    addCard.addItems(element)
                     
                 }
             }, card.container) 
@@ -77,6 +73,7 @@ const popUpCard = new PopUpForm(card.popUp,
     popUpCard.setEventLisners()
 
     const cardValidation = new FormValidation(formObj, card.form)
+    cardValidation.enableValidation()
 
     card.buttonAdd.addEventListener('click', () => {
         popUpCard.open()
@@ -87,7 +84,8 @@ const popUpCard = new PopUpForm(card.popUp,
 const popUpPreview = new PopUpPreview(preview)
 
 function openPreview(link, name) {
-    popUpPreview.openPreview(link, name)
+    popUpPreview.open(link, name)
+    popUpPreview.setEventLisners()
 }
 
 
