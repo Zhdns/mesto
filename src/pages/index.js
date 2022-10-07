@@ -1,4 +1,4 @@
-//import '../pages/index.css';
+import '../pages/index.css';
 import Card from "../components/Card.js"
 import { profile, card, preview, user, formObj } from "../utils/constants.js"
 import FormValidation from "../components/FormValidation.js"
@@ -10,6 +10,18 @@ import PopUpPreview from "../components/PopUpPreview.js"
 
 const profileRender = new UserInfo('.profile__info-name', '.profile__info-profession');
 
+function renderingCard(items) {  
+    const cardList = new Section({
+        items: items,
+        render: (item) => {
+            const cards = new Card(card, item, openPreview)
+            const element = cards.getElement()
+            cardList.addItems(element)
+        }
+    }, card.container)
+
+    cardList.renderItems() 
+}
 
 const popUpUser = new PopUpForm(profile.popUp, 
     {
@@ -34,16 +46,7 @@ profile.buttonEdit.addEventListener('click', () => {
 
 })
 
-const cardList = new Section({
-    items: user.photo,
-    render: (item) => {
-        const cards = new Card(card, item, openPreview)
-        const element = cards.getElement()
-        cardList.addItems(element)
-    }
-}, card.container)
-
-cardList.renderItems()
+    renderingCard(user.photo)
 
 const popUpCard = new PopUpForm(card.popUp, 
     {
@@ -53,19 +56,8 @@ const popUpCard = new PopUpForm(card.popUp,
                 name: info.cardName,
                 link: info.photoLink,
             }]
-            
-    
-                const addCard = new Section({
-                items: newCard,
-                render: (item) => {
-                    const cards = new Card(card, item, openPreview)
-                    const element = cards.getElement()
-                    addCard.addItems(element)
-                    
-                }
-            }, card.container) 
 
-            addCard.renderItems()
+            renderingCard(newCard)
             popUpCard.close()
         }      
     })
