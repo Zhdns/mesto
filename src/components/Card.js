@@ -11,28 +11,32 @@ export default class Card {
         this._buttonDelete = this._element.querySelector('.elements__delete-button');
 
     }
-    _openPreview() {
+    _openPreviewAddListener() {
         this._photo.addEventListener('click', () => {
             this._preview(this.link, this.name)
         })
     }
-    _like() {
-        this._buttonLike.addEventListener('click', (e) => {
-            e.target.classList.toggle('elements__information-button_active')
-        })
+    _likeAddListener() {
+        this._buttonLike.addEventListener('click', (e) => {this.like(e)})
     }
-    _delete() {
-        this._buttonDelete.addEventListener('click', (e) =>{
-            e.target.closest('.elements__card').remove() 
-        })
+    like(e) {
+        e.target.classList.toggle('elements__information-button_active')
+    }
+    _deleteAddListener() {
+        this._buttonDelete.addEventListener('click', () => {this.delete()})
     } 
+    delete(){
+        this._element.remove()
+        this._element = null
+    }
     _setEventListeners() {
-        this._like();
-        this._delete();
-        this._openPreview()
+        this._likeAddListener();
+        this._deleteAddListener();
+        this._openPreviewAddListener()
     }  
     getElement() {
         this._photo.src = this.link;
+        this._photo.alt = this.name;
         this._text.textContent = this.name;
         this._setEventListeners()
 

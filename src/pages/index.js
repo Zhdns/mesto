@@ -10,18 +10,23 @@ import PopUpPreview from "../components/PopUpPreview.js"
 
 const profileRender = new UserInfo('.profile__info-name', '.profile__info-profession');
 
-function renderingCard(items) {  
-    const cardList = new Section({
-        items: items,
-        render: (item) => {
-            const cards = new Card(card, item, openPreview)
-            const element = cards.getElement()
-            cardList.addItems(element)
-        }
-    }, card.container)
+function createCard(item) {
+    const cards = new Card(card, item, openPreview)
+    const cardElement = cards.getElement()
 
-    cardList.renderItems() 
+    return cardElement
 }
+
+const cardList = new Section({
+    items: user.photo,
+    render: (item) => {
+        const element = createCard(item)
+        cardList.addItems(element)
+        }
+}, card.container)
+
+cardList.renderItems() 
+
 
 const popUpUser = new PopUpForm(profile.popUp, 
     {
@@ -46,18 +51,19 @@ profile.buttonEdit.addEventListener('click', () => {
 
 })
 
-    renderingCard(user.photo)
+
 
 const popUpCard = new PopUpForm(card.popUp, 
     {
         handleSubmit: (info, evt) => {
             evt.preventDefault();
-            const newCard = [{
+            const newCard = {
                 name: info.cardName,
                 link: info.photoLink,
-            }]
+            }
 
-            renderingCard(newCard)
+            const card = createCard(newCard)
+            cardList.addItems(card)
             popUpCard.close()
         }      
     })
