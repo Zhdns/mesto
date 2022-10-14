@@ -1,9 +1,9 @@
 export default class FormValidation{
     constructor(config, form) {
         this._config = config
-        this.form = form
-        this.button = form.querySelector(this._config.buttonElement)
-        this.inputList = this.form.querySelectorAll(this._config.inputElement)
+        this._form = form
+        this._button = form.querySelector(this._config.buttonElement)
+        this._inputList = this._form.querySelectorAll(this._config.inputElement)
         
     }
     _setEventListeners(evt) {
@@ -22,12 +22,12 @@ export default class FormValidation{
         }
     };
     cleanInputs() {
-        this.inputList.forEach((input) => {
+        this._inputList.forEach((input) => {
             this._hideError(input)
         })
     }
     _toggleButtonState() {
-        const valid = this.form.checkValidity()
+        const valid = this._form.checkValidity()
         if(valid) {
             this.activateButton()
         }
@@ -36,10 +36,10 @@ export default class FormValidation{
         }
     }
     activateButton() {
-        this.button.removeAttribute('disabled')
+        this._button.removeAttribute('disabled')
     }
     disableButton() {
-        this.button.setAttribute('disabled', true);
+        this._button.setAttribute('disabled', true);
     }
     _hideError(input) {
         input.classList.remove(this._config.inputError)
@@ -47,7 +47,7 @@ export default class FormValidation{
         input.nextElementSibling.classList.remove(this._config.inputTextError)
     }
     enableValidation() {
-        this.form.addEventListener('input', (evt) => this._setEventListeners(evt))
+        this._form.addEventListener('input', (evt) => this._setEventListeners(evt))
     }
 }
 
