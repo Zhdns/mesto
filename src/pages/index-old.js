@@ -6,7 +6,7 @@ import Section from "../components/Section.js"
 import UserInfo from "../components/UserInfo.js"
 import PopUpForm from "../components/PopUpForm.js"
 import PopUpPreview from "../components/PopUpPreview.js"
-import Api from '../components/Api.js';
+import Api from "../components/Api.js"
 
 
 const profileRender = new UserInfo('.profile__info-name', '.profile__info-profession');
@@ -19,13 +19,14 @@ function createCard(item) {
 }
 
 const cardList = new Section({
+    items: user.photo,
     render: (item) => {
         const element = createCard(item)
         cardList.addItems(element)
         }
 }, card.container)
 
-
+cardList.renderItems() 
 
 
 const popUpUser = new PopUpForm(profile.popUp, 
@@ -86,13 +87,17 @@ function openPreview(link, name) {
     popUpPreview.setEventLisners()
 }
 
-const api = new Api()
-api
-    .giveData()
-    .then(([cards]) => {
-        cardList.renderItems(cards) 
+const api = new Api('https://mesto.nomoreparties.co/v1/cohort-52/cards', user.authorization )
+
+//const testApi = new Section{}
+function initialCards() {
+    fetch ('https://mesto.nomoreparties.co/v1/cohort-52/cards', {
+        headers: {
+            authorization: '87b6a5b0-f4e0-432d-92b2-4d1bc4496eec',
+            'Content-Type': 'application/json'
+        }
     })
+    .then(res => res.json())
+}
 
-
-
-        
+initialCards()
