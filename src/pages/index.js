@@ -9,7 +9,9 @@ import PopUpPreview from "../components/PopUpPreview.js"
 import Api from '../components/Api.js';
 
 
-const profileRender = new UserInfo('.profile__info-name', '.profile__info-profession');
+const profileRender = new UserInfo();
+
+
 
 function createCard(item) {
     const cards = new Card(card, item, openPreview)
@@ -28,14 +30,13 @@ const cardList = new Section({
 
 
 
-const popUpUser = new PopUpForm(profile.popUp, 
-    {
-        handleSubmit: (info, evt) => {
-            evt.preventDefault();
-            profileRender.setUserInfo(info.name, info.profession)
-            popUpUser.close()
-        }
+const popUpUser = new PopUpForm(profile.popUp, (items) => {
+    api.setUserInfo(items)
+        .then((item) => {
+            profileRender.setUserInfo(item)
+        })
 })
+    
 
 popUpUser.setEventLisners()
 
@@ -47,7 +48,7 @@ profile.buttonEdit.addEventListener('click', () => {
     profileValidation.cleanInputs()
     profileValidation.activateButton()
     profile.nameInput.value = profileRender.getUserInfo().name.textContent
-    profile.professionInput.value = profileRender.getUserInfo().profession.textContent
+    profile.professionInput.value = profileRender.getUserInfo().about.textContent
 
 })
 
@@ -89,10 +90,12 @@ function openPreview(link, name) {
 const api = new Api()
 api
     .giveData()
-    .then(([cards]) => {
+    .then(([cards, userData]) => {
+        profileRender.setUserInfo(userData)
         cardList.renderItems(cards) 
     })
 
+    api.test()
 
 
         

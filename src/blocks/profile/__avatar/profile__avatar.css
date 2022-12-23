@@ -3,9 +3,11 @@
     width: 120px;
     height: 120px;
     margin: 0 31px 0 0;
+    object-fit: cover;
 
     /*style*/
     border-radius: 50%;
+
 }
 
 @media screen and (max-width: 780px) {
