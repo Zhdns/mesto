@@ -14,7 +14,7 @@ export default class Api {
         return fetch('https://mesto.nomoreparties.co/v1/cohort-56/cards ', {
             method: 'GET',
             headers: {
-                authorization: 'a8e6eff0-9937-4599-a4ad-161c65f9e9ed',
+                authorization: '14f36213-36c3-4f37-8ced-ce7418e7c375',
                 'Content-Type': 'aplication/json'
             }
         })
@@ -24,17 +24,18 @@ export default class Api {
         return fetch('https://mesto.nomoreparties.co/v1/cohort-56/users/me ', {
             method: 'GET',
             headers: {
-                authorization: 'a8e6eff0-9937-4599-a4ad-161c65f9e9ed',
+                authorization: '14f36213-36c3-4f37-8ced-ce7418e7c375',
                 'Content-Type': 'aplication/json'
             }
         })
         .then (this._checkResponse)
     }
     setUserInfo(data) {
-        return fetch('https://mesto.nomoreparties.co/v1/cohort-56/users/me', {
+        console.log(data)
+        return fetch('https://mesto.nomoreparties.co/v1/cohort-56/users/me ', {
             method: 'PATCH',
             headers: {
-                authorization: 'a8e6eff0-9937-4599-a4ad-161c65f9e9ed',
+                authorization: '14f36213-36c3-4f37-8ced-ce7418e7c375',
                 'Content-Type': 'aplication/json'
             },
             body: JSON.stringify ({
@@ -51,7 +52,7 @@ export default class Api {
         return fetch('https://mesto.nomoreparties.co/v1/cohort-56/cards ', {
             method: 'GET',
             headers: {
-                authorization: 'a8e6eff0-9937-4599-a4ad-161c65f9e9ed',
+                authorization: '14f36213-36c3-4f37-8ced-ce7418e7c375',
                 'Content-Type': 'aplication/json'
             }
         })

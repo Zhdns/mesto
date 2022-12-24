@@ -48,6 +48,9 @@ export default class Card {
         if (!(this.ownerID === this.userID)) {
             this._buttonDelete.style.display = 'none'
         }
+        if(this.likes.find((item) => this.userID === item._id)) {
+            this._buttonLike.classList.classList.add('elements__information-button_active')
+        }
         
 
         return this._element
