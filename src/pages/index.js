@@ -1,6 +1,6 @@
 import '../pages/index.css';
 import Card from "../components/Card.js"
-import { profile, card, preview, user, formObj } from "../utils/constants.js"
+import { profile, card, preview, formObj } from "../utils/constants.js"
 import FormValidation from "../components/FormValidation.js"
 import Section from "../components/Section.js"
 import UserInfo from "../components/UserInfo.js"
