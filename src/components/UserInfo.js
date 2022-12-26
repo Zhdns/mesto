@@ -9,6 +9,7 @@ export default class UserInfo {
         this._userInfo = {
             name: this._name,
             about: this._job,
+            
         }
         return this._userInfo
         

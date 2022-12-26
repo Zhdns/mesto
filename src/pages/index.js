@@ -7,14 +7,30 @@ import UserInfo from "../components/UserInfo.js"
 import PopUpForm from "../components/PopUpForm.js"
 import PopUpPreview from "../components/PopUpPreview.js"
 import Api from '../components/Api.js';
+import PopUpConfirm from "../components/PopUpConfirm.js"
 
+
+//User
 
 const profileRender = new UserInfo();
+let userId
 
-
+//Card
 
 function createCard(item) {
-    const cards = new Card(card, item, openPreview)
+    const cards = new Card({
+        handleLike: () => {
+            cards.like()
+        }
+    },{
+        handleDelete: () => {
+            deleteConfirmation.setCallback(() => {
+                api.deleteCard(item._id)
+                .then(() => cards.delete())
+            })
+            deleteConfirmation.open()
+        }
+    }, card, item, openPreview, userId, api)
     const cardElement = cards.getElement()
 
     return cardElement
@@ -25,20 +41,25 @@ const cardList = new Section({
         const element = createCard(item)
         cardList.addItems(element)
         }
-}, card.container)
+}, card.container)   
 
+const popUpPreview = new PopUpPreview(preview)
 
+function openPreview(link, name) {
+    popUpPreview.open(link, name)
+    popUpPreview.setEventLisners()
+}
 
+//Vavidation
 
-const popUpUser = new PopUpForm(profile.popUp, (items) => {
-    api.setUserInfo(items)
-        .then((item) => {
-            profileRender.setUserInfo(item)
-        })
-})
-    
+const cardValidation = new FormValidation(formObj, card.form)
+    cardValidation.enableValidation()
 
-popUpUser.setEventLisners()
+    card.buttonAdd.addEventListener('click', () => {
+        popUpCard.open()
+        cardValidation.cleanInputs()
+        cardValidation.disableButton()
+    })
 
 const profileValidation = new FormValidation(formObj, profile.form)
 profileValidation.enableValidation()
@@ -52,50 +73,75 @@ profile.buttonEdit.addEventListener('click', () => {
 
 })
 
+const avatarValidation = new FormValidation(formObj, profile.avatarForm)
+avatarValidation.enableValidation()
 
+profile.avatarButton.addEventListener('click', ()=> {
+    popUpAvatar.open()
+    avatarValidation.cleanInputs()
+    avatarValidation.disableButton()
+})
 
-const popUpCard = new PopUpForm(card.popUp, 
-    {
-        handleSubmit: (info, evt) => {
-            evt.preventDefault();
-            const newCard = {
-                name: info.cardName,
-                link: info.photoLink,
-            }
+//Forms
 
-            const card = createCard(newCard)
+const popUpUser = new PopUpForm(profile.popUp, (items) => {
+    popUpUser.loading(true)
+    api.setUserInfo(items)
+        .then((item) => {
+            profileRender.setUserInfo(item)
+            popUpUser.close()
+        })
+        .catch((err) => console.log(err))
+        .finally(() => popUpUser.loading(false))
+})
+
+const popUpAvatar = new PopUpForm(profile.avatarPopUp, (items) => { 
+    console.log(items)
+    //popUpAvatar.loading(true)
+    api.changeAvatar(items)
+        .then((item) => {
+            profileRender.setUserInfo(item)
+            popUpAvatar.close()
+        })
+        .catch((err) => console.log(err))
+})
+    
+
+const popUpCard = new PopUpForm(card.popUp, (items) => {
+    popUpCard.loading(true)
+    api.addCard(items)
+        .then((item) => {
+            const card = createCard(item)
             cardList.addItems(card)
             popUpCard.close()
-        }      
-    })
+        })
+        .catch((err) => console.log(err))
+        .finally(() => popUpCard.loading(false))
+})
 
     popUpCard.setEventLisners()
+    popUpUser.setEventLisners()
+    popUpAvatar.setEventLisners()
 
-    const cardValidation = new FormValidation(formObj, card.form)
-    cardValidation.enableValidation()
+const deleteConfirmation = new PopUpConfirm(card.confirmWindow)
+deleteConfirmation.setEventLisners()
 
-    card.buttonAdd.addEventListener('click', () => {
-        popUpCard.open()
-        cardValidation.cleanInputs()
-        cardValidation.disableButton()
-    })
 
-const popUpPreview = new PopUpPreview(preview)
 
-function openPreview(link, name) {
-    popUpPreview.open(link, name)
-    popUpPreview.setEventLisners()
-}
+//API
 
-const api = new Api()
+const api = new Api({
+    headers: {
+        authorization: 'a8e6eff0-9937-4599-a4ad-161c65f9e9ed',
+        'Content-Type': 'application/json'
+    }
+})
 api
     .giveData()
     .then(([cards, userData]) => {
         profileRender.setUserInfo(userData)
+        userId = userData._id
         cardList.renderItems(cards) 
     })
-
-    api.test()
-
 
         

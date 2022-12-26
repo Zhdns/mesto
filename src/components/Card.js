@@ -1,5 +1,5 @@
 export default class Card {
-    constructor(card, data, preview) { 
+    constructor({handleLike},{handleDelete}, card, data, preview, userId, api) { 
         this._card = card 
         this._element = this._card.template.querySelector('.elements__card').cloneNode(true);
         this._photo = this._element.querySelector('.elements__photo');
@@ -8,8 +8,12 @@ export default class Card {
         this.name = data.name
         this.likes = data.likes
         this.ownerID = data.owner._id
-        this.userID = '87b6a5b0-f4e0-432d-92b2-4d1bc4496eec'
+        this._cardID = data._id
+        this.userID = userId
         this._preview = preview
+        this._api = api
+        this.handleLike = handleLike
+        this.handleDelete = handleDelete
         this._buttonLike = this._element.querySelector('.elements__information-button');
         this._buttonDelete = this._element.querySelector('.elements__delete-button');
         this._likeAmount = this._element.querySelector('.elements__like-amount')
@@ -21,17 +25,29 @@ export default class Card {
         })
     }
     _likeAddListener() {
-        this._buttonLike.addEventListener('click', (e) => {this.like(e)})
+        this._buttonLike.addEventListener('click', () => {this.handleLike()})
     }
-    like(e) {
-        e.target.classList.toggle('elements__information-button_active')
+    like() {
+        if (!this._buttonLike.classList.contains('elements__information-button_active')) {
+            this._api.like(this._cardID)
+            .then((item) => {
+                this._buttonLike.classList.add('elements__information-button_active')
+                this._likeAmount.textContent = item.likes.length
+            })
+        }
+        else {
+            this._api.unlike(this._cardID)
+            .then((item) => {
+                this._buttonLike.classList.remove('elements__information-button_active')
+                this._likeAmount.textContent = item.likes.length
+            })
+        }
     }
     _deleteAddListener() {
-        this._buttonDelete.addEventListener('click', () => {this.delete()})
+        this._buttonDelete.addEventListener('click', () => {this.handleDelete()})
     } 
     delete(){
-        this._element.remove()
-        this._element = null
+        this._element.closest('.elements__card').remove()
     }
     _setEventListeners() {
         this._likeAddListener();
@@ -49,7 +65,7 @@ export default class Card {
             this._buttonDelete.style.display = 'none'
         }
         if(this.likes.find((item) => this.userID === item._id)) {
-            this._buttonLike.classList.classList.add('elements__information-button_active')
+            this._buttonLike.classList.add('elements__information-button_active')
         }
         
 

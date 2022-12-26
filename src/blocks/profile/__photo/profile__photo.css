@@ -1,0 +1,13 @@
+.profile__photo {
+    width: 120px;
+    height: 120px;
+    position: relative;
+    margin: 0 31px 0 0;
+}
+
+@media screen and (max-width: 780px) {
+    .profile__photo {
+        /*intendention and sizing*/
+        margin: 0 auto 25px;
+    }
+}

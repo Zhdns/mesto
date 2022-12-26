@@ -9,6 +9,9 @@
     const profileName = document.querySelector('.profile__info-name')
     const profileImage = document.querySelector('.profile__avatar')
     const profileEditButton = document.querySelector('.profile__info-button')
+    const avatarPopUp = document.querySelector('#pop-up-avatar-form')
+    const avatarButton = document.querySelector('.profile__avatar-button')
+    const avatarForm = document.forms.avatar
 
     //card's constants
     const grid = document.querySelector('.elements') 
@@ -23,6 +26,7 @@
     const cardPopUp = document.querySelector('#pop-up-card-form');
     const cardAddButton = document.querySelector('.profile__add-button');
     const formCard = document.forms.card
+    const deleteConfirmation = document.querySelector('#pop-up-delete')
 
     //photo
     const deadSea = new URL('../images/places/deadsea.png', import.meta.url)
@@ -82,6 +86,7 @@
         nameInput: cardNameInput,
         linkInput: cardLinkInput,
         buttonAdd: cardAddButton,
+        confirmWindow: deleteConfirmation,
     }
 
     export const preview = {
@@ -102,5 +107,9 @@
         profession: profileProfession,
         avatar: profileImage,
         buttonEdit: profileEditButton,
+        avatarPopUp: avatarPopUp,
+        avatarButton: avatarButton,
+        avatarForm: avatarForm,
+
     }
 
