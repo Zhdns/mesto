@@ -1,8 +1,7 @@
-import { data } from "autoprefixer"
-
 export default class Api {
     constructor(config){
-        this.headers = config.headers
+        this._headers = config.headers
+        this._baseUrl = config.baseUrl
     }
     _checkResponse(res) {
         if(res.ok) { 
@@ -13,23 +12,23 @@ export default class Api {
         }
     }
     getInitialCards() {
-        return fetch('https://mesto.nomoreparties.co/v1/cohort-56/cards ', {
+        return fetch(this._baseUrl + '/cards', {
             method: 'GET',
-            headers: this.headers,
+            headers: this._headers,
         })
         .then (this._checkResponse)
     }
     getUserInfo() { 
-        return fetch('https://mesto.nomoreparties.co/v1/cohort-56/users/me ', {
+        return fetch(this._baseUrl + '/users/me', {
             method: 'GET',
-            headers: this.headers,
+            headers: this._headers,
         })
         .then (this._checkResponse)
     }
     setUserInfo(data) {
-        return fetch('https://mesto.nomoreparties.co/v1/cohort-56/users/me ', {
+        return fetch(this._baseUrl + '/users/me', {
             method: 'PATCH',
-            headers: this.headers,
+            headers: this._headers,
             body: JSON.stringify ({
                 name: data.name,
                 about: data.about
@@ -39,9 +38,9 @@ export default class Api {
     }
     changeAvatar(data) {
         console.log(data)
-        return fetch('https://mesto.nomoreparties.co/v1/cohort-56/users/me/avatar', {
+        return fetch( this._baseUrl + '/users/me/avatar', {
             method: 'PATCH',
-            headers: this.headers,
+            headers: this._headers,
             body: JSON.stringify ({
                 avatar: data.avatar,
             })
@@ -49,9 +48,9 @@ export default class Api {
         .then (this._checkResponse)
     }
     addCard(data) {
-        return fetch('https://mesto.nomoreparties.co/v1/cohort-56/cards',{
+        return fetch(this._baseUrl + '/cards',{
             method:'POST',
-            headers: this.headers,
+            headers: this._headers,
             body:JSON.stringify ({
                 name: data.name,
                 link: data.link,
@@ -60,28 +59,28 @@ export default class Api {
         .then (this._checkResponse)
     }
     like(id) {
-        return fetch(`https://mesto.nomoreparties.co/v1/cohort-56/cards/${id}/likes`, {
+        return fetch(this._baseUrl + `/cards/${id}/likes`, {
             method: 'PUT',
-            headers: this.headers,
+            headers: this._headers,
         })
         .then(this._checkResponse)
     }
     unlike(id) {
-        return fetch(`https://mesto.nomoreparties.co/v1/cohort-56/cards/${id}/likes`, {
+        return fetch(this._baseUrl + `/cards/${id}/likes`, {
             method: 'DELETE',
-            headers: this.headers,
+            headers: this._headers,
         })
         .then(this._checkResponse)
     }
     deleteCard(id) {
         console.log(id)
-        return fetch(`https://mesto.nomoreparties.co/v1/cohort-56/cards/${id}`, {
+        return fetch(this._baseUrl + `/cards/${id}`, {
             method: 'DELETE',
-            headers: this.headers,
+            headers: this._headers,
         })
         .then(this._checkResponse)
     }
-    giveData() {
+    getData() {
         return Promise.all([this.getInitialCards(), this.getUserInfo()])
     }
 }

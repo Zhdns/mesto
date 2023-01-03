@@ -34,6 +34,7 @@ export default class Card {
                 this._buttonLike.classList.add('elements__information-button_active')
                 this._likeAmount.textContent = item.likes.length
             })
+            .catch((err) => console.log(err))
         }
         else {
             this._api.unlike(this._cardID)
@@ -41,6 +42,7 @@ export default class Card {
                 this._buttonLike.classList.remove('elements__information-button_active')
                 this._likeAmount.textContent = item.likes.length
             })
+            .catch((err) => console.log(err))
         }
     }
     _deleteAddListener() {
